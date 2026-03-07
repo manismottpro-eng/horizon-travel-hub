@@ -158,32 +158,34 @@ const ServicesSection = () => {
           <h3 className="text-2xl font-display font-bold text-foreground mb-8 text-center">Hotel Booking</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* We can add hotel-specific service here if needed */}
-            {services.filter(service => service.title === "Tour Packages" || service.title === "Visa Processing").map((service, idx) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group p-6 bg-card rounded-2xl shadow-card border border-border hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
-                  <service.icon className="h-6 w-6 text-secondary" />
-                </div>
-                <h3 className="text-xl font-display font-bold text-foreground mb-2">{service.title}</h3>
-                <p className="text-sm font-body text-muted-foreground mb-4 leading-relaxed">{service.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {service.features.map((feature) => (
-                    <span
-                      key={feature}
-                      className="px-3 py-1 text-xs font-body font-medium bg-muted text-muted-foreground rounded-full"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="group p-6 bg-card rounded-2xl shadow-card border border-border hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
+                <MapPin className="h-6 w-6 text-secondary" />
+              </div>
+              <h3 className="text-xl font-display font-bold text-foreground mb-2">Hotel Booking</h3>
+              <p className="text-sm font-body text-muted-foreground mb-4 leading-relaxed">
+                Find the best hotel deals worldwide with our comprehensive booking service.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 text-xs font-body font-medium bg-muted text-muted-foreground rounded-full">
+                  Best Prices
+                </span>
+                <span className="px-3 py-1 text-xs font-body font-medium bg-muted text-muted-foreground rounded-full">
+                  All Hotels
+                </span>
+                <span className="px-3 py-1 text-xs font-body font-medium bg-muted text-muted-foreground rounded-full">
+                  24/7 Support
+                </span>
+                <span className="px-3 py-1 text-xs font-body font-medium bg-muted text-muted-foreground rounded-full">
+                  Flexible Booking
+                </span>
+              </div>
+            </motion.div>
           </div>
         </div>
 
