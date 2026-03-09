@@ -1,44 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "/newlogo.png";
-
-const visaCountries = [
-  { name: "United States", flag: "🇺🇸" },
-  { name: "United Kingdom", flag: "🇬🇧" },
-  { name: "Canada", flag: "🇨🇦" },
-  { name: "Australia", flag: "🇦🇺" },
-  { name: "UAE", flag: "🇦🇪" },
-  { name: "Saudi Arabia", flag: "🇸🇦" },
-  { name: "Qatar", flag: "🇶🇦" },
-  { name: "Bahrain", flag: "🇧🇭" },
-  { name: "Oman", flag: "🇴🇲" },
-  { name: "Schengen", flag: "🇪🇺" },
-];
-
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { 
-    label: "Services", 
-    href: "#services",
-    dropdown: [
-      { name: "Visa Services", href: "#visa-services" },
-      { name: "Tours & Packages", href: "#tours" },
-      { name: "Air Ticketing", href: "#air-ticketing" },
-      { name: "Hotel Booking", href: "#hotel-booking" },
-      { name: "Travel Insurance", href: "#travel-insurance" }
-    ]
-  },
-  { label: "Destinations", href: "#destinations" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
-];
+import { navLinks } from "@/data/navigationData";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [visaDropdown, setVisaDropdown] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const location = useLocation();
+
+  const handleLinkClick = (href: string) => {
+    setIsOpen(false);
+    if (href.startsWith("/#") && location.pathname === "/") {
+      const id = href.split("#")[1];
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (location.hash && location.pathname === "/") {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   return (
     <>
@@ -62,9 +56,9 @@ const Navbar = () => {
       {/* Main nav */}
       <nav className="sticky top-0 z-50 bg-primary/95 backdrop-blur-md shadow-card border-b border-primary-foreground/10">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <a href="#home" className="flex items-center gap-2">
+          <Link to="/" onClick={() => handleLinkClick("/")} className="flex items-center gap-2">
             <img src={logo} alt="Smart Pro Visa" className="h-12 w-auto" />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1 font-body">
@@ -88,14 +82,45 @@ const Navbar = () => {
                           exit={{ opacity: 0, y: 8 }}
                           className="absolute top-full left-0 mt-1 w-56 bg-card rounded-xl shadow-elevated border border-border p-2"
                         >
-                          {link.dropdown.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg hover:bg-muted transition-colors"
+                          {link.dropdown.map((item: any) => (
+                            <div
+                              key={item.id}
+                              className="relative"
+                              onMouseEnter={() => item.submenu && setActiveSubmenu(item.id)}
+                              onMouseLeave={() => item.submenu && setActiveSubmenu(null)}
                             >
-                              <span>{item.name}</span>
-                            </a>
+                              <Link
+                                to={item.href}
+                                onClick={() => handleLinkClick(item.href)}
+                                className="flex items-center justify-between px-3 py-2.5 text-sm rounded-lg hover:bg-muted transition-colors text-foreground"
+                              >
+                                <span>{item.name}</span>
+                                {item.submenu && <ChevronDown className="h-3 w-3 -rotate-90" />}
+                              </Link>
+
+                              <AnimatePresence>
+                                {item.submenu && activeSubmenu === item.id && (
+                                  <motion.div
+                                    initial={{ opacity: 0, x: 8 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 8 }}
+                                    className="absolute top-0 left-full ml-1 w-56 bg-card rounded-xl shadow-elevated border border-border p-2"
+                                  >
+                                    {item.submenu.map((sub: any) => (
+                                      <Link
+                                        key={sub.id}
+                                        to={sub.href}
+                                        onClick={() => handleLinkClick(sub.href)}
+                                        className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg hover:bg-muted transition-colors text-foreground"
+                                      >
+                                        <span className="text-lg">{sub.flag}</span>
+                                        <span>{sub.name}</span>
+                                      </Link>
+                                    ))}
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
                           ))}
                         </motion.div>
                       )}
@@ -104,53 +129,24 @@ const Navbar = () => {
                 );
               }
               return (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
+                  onClick={() => handleLinkClick(link.href)}
                   className="px-4 py-2 text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground rounded-lg hover:bg-primary-foreground/10 transition-all"
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
-            <div
-              className="relative"
-              onMouseEnter={() => setVisaDropdown(true)}
-              onMouseLeave={() => setVisaDropdown(false)}
-            >
-              <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground rounded-lg hover:bg-primary-foreground/10 transition-all">
-                Visa Services <ChevronDown className="h-3 w-3" />
-              </button>
-              <AnimatePresence>
-                {visaDropdown && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    className="absolute top-full right-0 mt-1 w-64 bg-card rounded-xl shadow-elevated border border-border p-2"
-                  >
-                    {visaCountries.map((country) => (
-                      <a
-                        key={country.name}
-                        href="#services"
-                        className="flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg hover:bg-muted transition-colors"
-                      >
-                        <span className="text-lg">{country.flag}</span>
-                        <span>{country.name} Visa</span>
-                      </a>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:block">
             <a
-              href="#contact"
-              className="px-6 py-2.5 bg-secondary text-secondary-foreground font-body font-semibold text-sm rounded-full hover:opacity-90 transition-all shadow-gold"
+              href="/#contact"
+              className="px-6 py-2.5 bg-secondary text-secondary-foreground font-body font-bold rounded-full hover:opacity-90 transition-all shadow-gold"
             >
-              Get Free Consultation
+              Get a Quote
             </a>
           </div>
 
@@ -180,54 +176,57 @@ const Navbar = () => {
                         <div className="pt-2 pb-1 px-4 text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider">
                           {link.label}
                         </div>
-                        {link.dropdown.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block px-4 py-2.5 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
-                          >
-                            {item.name}
-                          </a>
+                        {link.dropdown.map((item: any) => (
+                          <div key={item.id}>
+                            <button
+                              onClick={() => setActiveSubmenu(activeSubmenu === item.id ? null : item.id)}
+                              className="flex items-center justify-between w-full px-4 py-2.5 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
+                            >
+                              <span>{item.name}</span>
+                              {item.submenu && (
+                                <ChevronDown className={`h-3 w-3 transition-transform ${activeSubmenu === item.id ? "rotate-180" : ""}`} />
+                              )}
+                            </button>
+                            {item.submenu && activeSubmenu === item.id && (
+                              <div className="pl-4 mt-1 grid grid-cols-2 gap-1">
+                                {item.submenu.map((sub: any) => (
+                                  <Link
+                                    key={sub.id}
+                                    to={sub.href}
+                                    onClick={() => handleLinkClick(sub.href)}
+                                    className="flex items-center gap-2 px-4 py-2 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
+                                  >
+                                    <span>{sub.flag}</span>
+                                    <span>{sub.name.replace(" Visa", "")}</span>
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     );
                   }
                   return (
-                    <a
+                    <Link
                       key={link.label}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
+                      to={link.href}
+                      onClick={() => handleLinkClick(link.href)}
                       className="block px-4 py-3 text-sm font-medium rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   );
                 })}
-                <div className="pt-2 pb-1 px-4 text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider">
-                  Visa Services
-                </div>
-                <div className="grid grid-cols-2 gap-1">
-                  {visaCountries.map((country) => (
-                    <a
-                      key={country.name}
-                      href="#services"
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-2 px-4 py-2.5 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
-                    >
-                      <span>{country.flag}</span>
-                      <span>{country.name}</span>
-                    </a>
-                  ))}
-                </div>
-                <div className="pt-3">
-                  <a
-                    href="#contact"
-                    className="block text-center px-6 py-3 bg-secondary text-secondary-foreground font-semibold text-sm rounded-full"
-                  >
-                    Get Free Consultation
-                  </a>
-                </div>
+              </div>
+              <div className="p-4 pt-0">
+                <a
+                  href="#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-center px-6 py-3 bg-secondary text-secondary-foreground font-semibold text-sm rounded-full"
+                >
+                  Get Free Consultation
+                </a>
               </div>
             </motion.div>
           )}

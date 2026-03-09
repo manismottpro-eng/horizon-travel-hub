@@ -1,93 +1,137 @@
-import { Facebook, Instagram, Twitter, Youtube, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, ArrowUp, MapPin, Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "/newlogo.png";
+import { navLinks, services } from "@/data/navigationData";
+import { offices, seoLocations } from "@/data/officeData";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
-          <div>
-            <img src={logo} alt="Smart Pro Visa" className="h-14 w-auto mb-4 brightness-200" />
-            <p className="text-sm font-body text-primary-foreground/70 leading-relaxed mb-6">
-              Your trusted partner for hassle-free visa processing, flight bookings, and travel packages worldwide.
+    <footer className="bg-primary text-primary-foreground relative overflow-hidden">
+      <div className="absolute inset-0 opacity-5 pointer-events-none bg-grid-white" />
+
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand & Tagline */}
+          <div className="space-y-6">
+            <Link to="/">
+              <img src={logo} alt="SmotPro Overseas" className="h-16 w-auto mb-2 brightness-200" />
+            </Link>
+            <p className="text-sm font-body text-primary-foreground/70 leading-relaxed italic">
+              "The status of the customer needs is monitored online with the help of our state of technology."
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
-                  className="p-2.5 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
+                  className="p-2.5 bg-primary-foreground/10 rounded-xl hover:bg-secondary hover:text-secondary-foreground transition-all duration-300"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links & Services */}
+          <div className="grid grid-cols-2 gap-8 lg:col-span-1">
+            <div>
+              <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Explore</h4>
+              <ul className="space-y-4">
+                {navLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-sm font-body text-primary-foreground/70 hover:text-secondary transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Services</h4>
+              <ul className="space-y-4">
+                {services.map((service) => (
+                  <li key={service.id}>
+                    <Link to={service.href} className="text-sm font-body text-primary-foreground/70 hover:text-secondary transition-colors">
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Our Presence (Offices) */}
           <div>
-            <h4 className="text-sm font-body font-bold uppercase tracking-wider mb-5">Quick Links</h4>
-            <ul className="space-y-3">
-              {["Home", "About Us", "Services", "Destinations", "Blog", "Contact"].map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(" ", "")}`} className="text-sm font-body text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                    {link}
-                  </a>
+            <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Our Presence</h4>
+            <ul className="space-y-5">
+              {offices.map((office) => (
+                <li key={office.id} className="group">
+                  <div className="flex gap-3">
+                    <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-body font-bold text-primary-foreground/90 group-hover:text-secondary transition-colors">{office.city}</p>
+                      <p className="text-[11px] font-body text-primary-foreground/50 leading-tight mt-1">{office.name}</p>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Visa Services */}
+          {/* SEO / Service Areas */}
           <div>
-            <h4 className="text-sm font-body font-bold uppercase tracking-wider mb-5">Visa Services</h4>
-            <ul className="space-y-3">
-              {["🇺🇸 US Visa", "🇬🇧 UK Visa", "🇦🇪 UAE Visa", "🇨🇦 Canada Visa", "🇦🇺 Australia Visa", "🇪🇺 Schengen Visa", "🇸🇦 Saudi Visa", "🇶🇦 Qatar Visa"].map((visa) => (
-                <li key={visa}>
-                  <a href="#services" className="text-sm font-body text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                    {visa}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-sm font-body font-bold uppercase tracking-wider mb-5">Stay Updated</h4>
-            <p className="text-sm font-body text-primary-foreground/70 mb-4">
-              Subscribe to get the latest travel deals and visa updates.
+            <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Service Hubs</h4>
+            <p className="text-[11px] font-body text-primary-foreground/50 mb-4">
+              Premium Passport & Visa Services available across key locations in Bangalore:
             </p>
-            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full px-4 py-3 rounded-xl bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground font-body text-sm placeholder:text-primary-foreground/40 focus:ring-2 focus:ring-secondary/50 outline-none"
-              />
-              <button className="px-6 py-3 bg-secondary text-secondary-foreground font-body font-bold text-sm rounded-xl hover:opacity-90 transition-all">
-                Subscribe
-              </button>
-            </form>
+            <div className="flex flex-wrap gap-2">
+              {seoLocations.map((loc) => (
+                <span
+                  key={loc}
+                  className="px-2 py-1 bg-primary-foreground/5 rounded text-[10px] font-body text-primary-foreground/40 hover:bg-secondary/20 hover:text-secondary cursor-default transition-colors"
+                >
+                  {loc}
+                </span>
+              ))}
+            </div>
+            <div className="mt-8 pt-6 border-t border-primary-foreground/10 space-y-3">
+              <div className="flex items-center gap-2 text-xs text-primary-foreground/60">
+                <Phone className="h-3 w-3 text-secondary" /> +91 9355532707
+              </div>
+              <div className="flex items-center gap-2 text-xs text-primary-foreground/60">
+                <Mail className="h-3 w-3 text-secondary" /> info@smotprollp.in
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-primary-foreground/10">
-        <div className="container mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs font-body text-primary-foreground/50">
-            © 2026 Smart Pro Visa. All rights reserved.
-          </p>
-          <div className="flex gap-4 text-xs font-body text-primary-foreground/50">
-            <a href="#" className="hover:text-primary-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary-foreground transition-colors">Terms of Service</a>
+      <div className="border-t border-primary-foreground/10 bg-black/20">
+        <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="space-y-1">
+            <p className="text-xs font-body text-primary-foreground/50">
+              © 2026 SmotPro Overseas Co LLC. All rights reserved.
+            </p>
+            <p className="text-[10px] font-body text-primary-foreground/30">
+              Managed by Smotpro Overseas LLP.
+            </p>
           </div>
+
+          <div className="flex gap-8 text-[11px] font-body text-primary-foreground/40">
+            <a href="#" className="hover:text-secondary transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-secondary transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-secondary transition-colors">Cookies Settings</a>
+          </div>
+
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
+            className="group flex flex-col items-center gap-1 text-[10px] font-body text-primary-foreground/30 hover:text-secondary transition-colors"
           >
-            <ArrowUp className="h-4 w-4" />
+            <div className="p-2 bg-primary-foreground/10 rounded-full group-hover:bg-secondary transition-colors">
+              <ArrowUp className="h-4 w-4 text-primary-foreground" />
+            </div>
+            TOP
           </button>
         </div>
       </div>

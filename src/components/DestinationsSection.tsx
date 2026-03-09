@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import dubaiImg from "@/assets/dubai.jpg";
 import londonImg from "@/assets/london.jpg";
 import travelersImg from "@/assets/travelers.jpg";
@@ -7,6 +8,7 @@ import visaImg from "@/assets/visa-services.jpg";
 
 const destinations = [
   {
+    id: "uae",
     name: "United Arab Emirates",
     flag: "🇦🇪",
     image: dubaiImg,
@@ -15,6 +17,7 @@ const destinations = [
     price: "From $89",
   },
   {
+    id: "uk",
     name: "United Kingdom",
     flag: "🇬🇧",
     image: londonImg,
@@ -23,6 +26,7 @@ const destinations = [
     price: "From $199",
   },
   {
+    id: "us",
     name: "United States",
     flag: "🇺🇸",
     image: travelersImg,
@@ -31,6 +35,7 @@ const destinations = [
     price: "From $249",
   },
   {
+    id: "schengen",
     name: "Schengen (Europe)",
     flag: "🇪🇺",
     image: visaImg,
@@ -41,18 +46,14 @@ const destinations = [
 ];
 
 const moreCountries = [
-  { name: "Canada", flag: "🇨🇦" },
-  { name: "Australia", flag: "🇦🇺" },
-  { name: "Saudi Arabia", flag: "🇸🇦" },
-  { name: "Qatar", flag: "🇶🇦" },
-  { name: "Bahrain", flag: "🇧🇭" },
-  { name: "Oman", flag: "🇴🇲" },
-  { name: "Kuwait", flag: "🇰🇼" },
-  { name: "Malaysia", flag: "🇲🇾" },
-  { name: "Singapore", flag: "🇸🇬" },
-  { name: "Thailand", flag: "🇹🇭" },
-  { name: "Turkey", flag: "🇹🇷" },
-  { name: "Japan", flag: "🇯🇵" },
+  { id: "canada", name: "Canada", flag: "🇨🇦" },
+  { id: "australia", name: "Australia", flag: "🇦🇺" },
+  { id: "kuwait", name: "Kuwait", flag: "🇰🇼" },
+  { id: "#", name: "Malaysia", flag: "🇲🇾" },
+  { id: "#", name: "Singapore", flag: "🇸🇬" },
+  { id: "#", name: "Thailand", flag: "🇹🇭" },
+  { id: "#", name: "Turkey", flag: "🇹🇷" },
+  { id: "#", name: "Japan", flag: "🇯🇵" },
 ];
 
 const DestinationsSection = () => {
@@ -84,26 +85,28 @@ const DestinationsSection = () => {
               transition={{ delay: idx * 0.1 }}
               className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300"
             >
-              <div className="aspect-[3/4] relative">
-                <img src={dest.image} alt={dest.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-2xl">{dest.flag}</span>
-                    <h3 className="text-lg font-display font-bold text-primary-foreground">{dest.name}</h3>
-                  </div>
-                  <p className="text-xs font-body text-primary-foreground/70 mb-3">{dest.visaType}</p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-xs font-body text-primary-foreground/60">Processing</span>
-                      <p className="text-sm font-body font-semibold text-primary-foreground">{dest.processing}</p>
+              <Link to={`/visa/${dest.id}`}>
+                <div className="aspect-[3/4] relative">
+                  <img src={dest.image} alt={dest.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">{dest.flag}</span>
+                      <h3 className="text-lg font-display font-bold text-primary-foreground">{dest.name}</h3>
                     </div>
-                    <span className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-body font-bold rounded-full">
-                      {dest.price}
-                    </span>
+                    <p className="text-xs font-body text-primary-foreground/70 mb-3">{dest.visaType}</p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-xs font-body text-primary-foreground/60">Processing</span>
+                        <p className="text-sm font-body font-semibold text-primary-foreground">{dest.processing}</p>
+                      </div>
+                      <span className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-body font-bold rounded-full">
+                        {dest.price}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -120,17 +123,18 @@ const DestinationsSection = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             {moreCountries.map((country) => (
-              <span
+              <Link
                 key={country.name}
+                to={country.id === "#" ? "/#contact" : `/visa/${country.id}`}
                 className="inline-flex items-center gap-2 px-4 py-2.5 bg-muted rounded-full text-sm font-body font-medium hover:bg-secondary/10 hover:shadow-card transition-all cursor-pointer"
               >
                 <span className="text-lg">{country.flag}</span>
                 {country.name}
-              </span>
+              </Link>
             ))}
           </div>
           <div className="text-center">
-            <a href="#contact" className="inline-flex items-center gap-2 text-sm font-body font-semibold text-secondary hover:underline">
+            <a href="/#contact" className="inline-flex items-center gap-2 text-sm font-body font-semibold text-secondary hover:underline">
               Don't see your country? Contact us <ArrowRight className="h-4 w-4" />
             </a>
           </div>

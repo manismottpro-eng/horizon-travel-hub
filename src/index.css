@@ -133,4 +133,14 @@
   .shadow-gold {
     box-shadow: var(--shadow-gold);
   }
+
+  .bg-grid-white {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .bg-grid-navy {
+    background-image: radial-gradient(rgba(30, 58, 138, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
 }
