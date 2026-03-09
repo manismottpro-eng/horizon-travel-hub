@@ -3,7 +3,6 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import DestinationsSection from "@/components/DestinationsSection";
 import BlogSection from "@/components/BlogSection";
-import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
@@ -13,7 +12,6 @@ const Index = () => {
       <ServicesSection />
       <DestinationsSection />
       <BlogSection />
-      <ContactSection />
     </div>
   );
 };

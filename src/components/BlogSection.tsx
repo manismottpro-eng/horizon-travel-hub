@@ -75,9 +75,13 @@ const BlogSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a href="#blog" className="inline-flex items-center gap-2 px-8 py-3 bg-secondary/10 text-secondary font-body font-bold rounded-full hover:bg-secondary/20 transition-all">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-secondary/10 text-secondary font-body font-bold rounded-full hover:bg-secondary/20 transition-all"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             Browse All Insights <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

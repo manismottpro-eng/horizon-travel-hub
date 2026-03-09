@@ -7,6 +7,12 @@ import Index from "@/pages/Index";
 import VisaDetailPage from "@/pages/VisaDetailPage";
 import ServiceDetailPage from "@/pages/ServiceDetailPage";
 import BlogDetailPage from "@/pages/BlogDetailPage";
+import OfficeDetailPage from "@/pages/OfficeDetailPage";
+import ContactPage from "@/pages/ContactPage";
+import AboutPage from "@/pages/AboutPage";
+import ServicesPage from "@/pages/ServicesPage";
+import DestinationsPage from "@/pages/DestinationsPage";
+import BlogPage from "@/pages/BlogPage";
 import NotFound from "@/pages/NotFound";
 import Layout from "@/components/Layout";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -23,6 +29,12 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/destinations" element={<DestinationsPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/offices/:officeId" element={<OfficeDetailPage />} />
             <Route path="/visa/:countryId" element={<VisaDetailPage />} />
             <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/blog/:blogId" element={<BlogDetailPage />} />

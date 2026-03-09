@@ -125,7 +125,7 @@ const DestinationsSection = () => {
             {moreCountries.map((country) => (
               <Link
                 key={country.name}
-                to={country.id === "#" ? "/#contact" : `/visa/${country.id}`}
+                to={country.id === "#" ? "/contact" : `/visa/${country.id}`}
                 className="inline-flex items-center gap-2 px-4 py-2.5 bg-muted rounded-full text-sm font-body font-medium hover:bg-secondary/10 hover:shadow-card transition-all cursor-pointer"
               >
                 <span className="text-lg">{country.flag}</span>
@@ -134,9 +134,13 @@ const DestinationsSection = () => {
             ))}
           </div>
           <div className="text-center">
-            <a href="/#contact" className="inline-flex items-center gap-2 text-sm font-body font-semibold text-secondary hover:underline">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 text-sm font-body font-semibold text-secondary hover:underline"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               Don't see your country? Contact us <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

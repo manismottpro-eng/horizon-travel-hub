@@ -1,4 +1,5 @@
 // This file will centralize the navigation data to be used across the app
+import { offices } from "./officeData";
 export const visaCountries = [
     { id: "us", name: "United States", flag: "🇺🇸", href: "/visa/us" },
     { id: "uk", name: "United Kingdom", flag: "🇬🇧", href: "/visa/uk" },
@@ -19,11 +20,17 @@ export const services = [
     { id: "air-ticketing", name: "Air Ticketing", href: "/services/air-ticketing" }
 ];
 
+export const branches = offices.map(office => ({
+    id: office.id,
+    name: office.city,
+    href: `/offices/${office.id}`
+}));
+
 export const navLinks = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/#about" },
-    { label: "Services", href: "/#services", dropdown: services },
-    { label: "Destinations", href: "/#destinations" },
-    { label: "Blog", href: "/#blog" },
-    { label: "Contact", href: "/#contact" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services", dropdown: services },
+    { label: "Destinations", href: "/destinations" },
+    { label: "Branches", href: "/contact", dropdown: branches },
+    { label: "Blog", href: "/blog" },
 ];

@@ -7,19 +7,13 @@ import { navLinks } from "@/data/navigationData";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const location = useLocation();
 
-  const handleLinkClick = (href: string) => {
+  const handleLinkClick = () => {
     setIsOpen(false);
-    if (href.startsWith("/#") && location.pathname === "/") {
-      const id = href.split("#")[1];
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -56,8 +50,8 @@ const Navbar = () => {
       {/* Main nav */}
       <nav className="sticky top-0 z-50 bg-primary/95 backdrop-blur-md shadow-card border-b border-primary-foreground/10">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <Link to="/" onClick={() => handleLinkClick("/")} className="flex items-center gap-2">
-            <img src={logo} alt="Smart Pro Visa" className="h-12 w-auto" />
+          <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
+            <img src={logo} alt="Smart Pro Visa" className="h-16 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -68,14 +62,14 @@ const Navbar = () => {
                   <div
                     key={link.label}
                     className="relative"
-                    onMouseEnter={() => setServicesDropdown(true)}
-                    onMouseLeave={() => setServicesDropdown(false)}
+                    onMouseEnter={() => setActiveDropdown(link.label)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground rounded-lg hover:bg-primary-foreground/10 transition-all">
                       {link.label} <ChevronDown className="h-3 w-3" />
                     </button>
                     <AnimatePresence>
-                      {servicesDropdown && (
+                      {activeDropdown === link.label && (
                         <motion.div
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +85,7 @@ const Navbar = () => {
                             >
                               <Link
                                 to={item.href}
-                                onClick={() => handleLinkClick(item.href)}
+                                onClick={handleLinkClick}
                                 className="flex items-center justify-between px-3 py-2.5 text-sm rounded-lg hover:bg-muted transition-colors text-foreground"
                               >
                                 <span>{item.name}</span>
@@ -110,7 +104,7 @@ const Navbar = () => {
                                       <Link
                                         key={sub.id}
                                         to={sub.href}
-                                        onClick={() => handleLinkClick(sub.href)}
+                                        onClick={handleLinkClick}
                                         className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg hover:bg-muted transition-colors text-foreground"
                                       >
                                         <span className="text-lg">{sub.flag}</span>
@@ -132,7 +126,7 @@ const Navbar = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  onClick={() => handleLinkClick(link.href)}
+                  onClick={handleLinkClick}
                   className="px-4 py-2 text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground rounded-lg hover:bg-primary-foreground/10 transition-all"
                 >
                   {link.label}
@@ -142,12 +136,12 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:block">
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="px-6 py-2.5 bg-secondary text-secondary-foreground font-body font-bold rounded-full hover:opacity-90 transition-all shadow-gold"
             >
               Get a Quote
-            </a>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -178,29 +172,39 @@ const Navbar = () => {
                         </div>
                         {link.dropdown.map((item: any) => (
                           <div key={item.id}>
-                            <button
-                              onClick={() => setActiveSubmenu(activeSubmenu === item.id ? null : item.id)}
-                              className="flex items-center justify-between w-full px-4 py-2.5 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
-                            >
-                              <span>{item.name}</span>
-                              {item.submenu && (
-                                <ChevronDown className={`h-3 w-3 transition-transform ${activeSubmenu === item.id ? "rotate-180" : ""}`} />
-                              )}
-                            </button>
-                            {item.submenu && activeSubmenu === item.id && (
-                              <div className="pl-4 mt-1 grid grid-cols-2 gap-1">
-                                {item.submenu.map((sub: any) => (
-                                  <Link
-                                    key={sub.id}
-                                    to={sub.href}
-                                    onClick={() => handleLinkClick(sub.href)}
-                                    className="flex items-center gap-2 px-4 py-2 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
-                                  >
-                                    <span>{sub.flag}</span>
-                                    <span>{sub.name.replace(" Visa", "")}</span>
-                                  </Link>
-                                ))}
-                              </div>
+                            {item.submenu ? (
+                              <>
+                                <button
+                                  onClick={() => setActiveSubmenu(activeSubmenu === item.id ? null : item.id)}
+                                  className="flex items-center justify-between w-full px-4 py-2.5 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
+                                >
+                                  <span>{item.name}</span>
+                                  <ChevronDown className={`h-3 w-3 transition-transform ${activeSubmenu === item.id ? "rotate-180" : ""}`} />
+                                </button>
+                                {activeSubmenu === item.id && (
+                                  <div className="pl-4 mt-1 grid grid-cols-2 gap-1">
+                                    {item.submenu.map((sub: any) => (
+                                      <Link
+                                        key={sub.id}
+                                        to={sub.href}
+                                        onClick={handleLinkClick}
+                                        className="flex items-center gap-2 px-4 py-2 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
+                                      >
+                                        <span>{sub.flag}</span>
+                                        <span>{sub.name.replace(" Visa", "")}</span>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </>
+                            ) : (
+                              <Link
+                                to={item.href}
+                                onClick={handleLinkClick}
+                                className="flex items-center justify-between w-full px-4 py-2.5 text-sm rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
+                              >
+                                <span>{item.name}</span>
+                              </Link>
                             )}
                           </div>
                         ))}
@@ -211,7 +215,7 @@ const Navbar = () => {
                     <Link
                       key={link.label}
                       to={link.href}
-                      onClick={() => handleLinkClick(link.href)}
+                      onClick={handleLinkClick}
                       className="block px-4 py-3 text-sm font-medium rounded-lg hover:bg-primary-foreground/10 transition-colors text-primary-foreground"
                     >
                       {link.label}
@@ -220,13 +224,13 @@ const Navbar = () => {
                 })}
               </div>
               <div className="p-4 pt-0">
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="block text-center px-6 py-3 bg-secondary text-secondary-foreground font-semibold text-sm rounded-full"
                 >
                   Get Free Consultation
-                </a>
+                </Link>
               </div>
             </motion.div>
           )}

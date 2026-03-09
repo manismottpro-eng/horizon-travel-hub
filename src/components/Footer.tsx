@@ -39,7 +39,11 @@ const Footer = () => {
               <ul className="space-y-4">
                 {navLinks.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-sm font-body text-primary-foreground/70 hover:text-secondary transition-colors">
+                    <Link
+                      to={link.href}
+                      className="text-sm font-body text-primary-foreground/70 hover:text-secondary transition-colors"
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -66,13 +70,13 @@ const Footer = () => {
             <ul className="space-y-5">
               {offices.map((office) => (
                 <li key={office.id} className="group">
-                  <div className="flex gap-3">
+                  <Link to={`/offices/${office.id}`} className="flex gap-3" onClick={() => window.scrollTo(0, 0)}>
                     <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
                     <div>
                       <p className="text-sm font-body font-bold text-primary-foreground/90 group-hover:text-secondary transition-colors">{office.city}</p>
                       <p className="text-[11px] font-body text-primary-foreground/50 leading-tight mt-1">{office.name}</p>
                     </div>
-                  </div>
+                  </Link>
                 </li>
               ))}
             </ul>

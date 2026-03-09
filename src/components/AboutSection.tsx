@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import travelersImg from "@/assets/travelers.jpg";
 
 const highlights = [
@@ -41,8 +42,8 @@ const AboutSection = () => {
               Making Travel Dreams Come True Since 2014
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-6">
-              Smart Pro Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience. 
-              Whether you need a visa for the US, UK, GCC countries, or anywhere else in the world — we handle the entire 
+              Smart Pro Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience.
+              Whether you need a visa for the US, UK, GCC countries, or anywhere else in the world — we handle the entire
               process from documentation to approval, so you can focus on packing your bags.
             </p>
             <div className="space-y-3 mb-8">
@@ -53,12 +54,12 @@ const AboutSection = () => {
                 </div>
               ))}
             </div>
-            <a
-              href="#contact"
+            <Link
+              to="/about"
               className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-body font-semibold text-sm rounded-full hover:opacity-90 transition-all"
             >
               Learn More About Us
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
