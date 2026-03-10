@@ -1,11 +1,37 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, User, Clock, Share2 } from "lucide-react";
-import { blogs } from "@/data/blogData";
+import { fetchBlogBySlug } from "@/data/blogData";
+import { useState, useEffect } from "react";
+import type { BlogPost } from "@/data/blogData";
 
 const BlogDetailPage = () => {
     const { blogId } = useParams<{ blogId: string }>();
-    const blog = blogs.find(b => b.id === blogId);
+    const [blog, setBlog] = useState<BlogPost | undefined>();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadBlog = async () => {
+            if (blogId) {
+                const fetchedBlog = await fetchBlogBySlug(blogId);
+                setBlog(fetchedBlog);
+            }
+            setLoading(false);
+        };
+        loadBlog();
+    }, [blogId]);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-background pt-24 pb-20">
+                <div className="container mx-auto px-4">
+                    <div className="flex justify-center items-center h-64">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     if (!blog) {
         return (
@@ -22,7 +48,7 @@ const BlogDetailPage = () => {
             {/* Hero Section */}
             <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
                 <img
-                    src={blog.image}
+                    src={blog.image.startsWith('https://picsum.photos') ? blog.image : 'https://picsum.photos/seed/' + blog.id + '/1200/800'}
                     alt={blog.title}
                     className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -36,7 +62,7 @@ const BlogDetailPage = () => {
                         className="max-w-4xl"
                     >
                         <Link
-                            to="/#blog"
+                            to="/blog"
                             className="inline-flex items-center gap-2 text-secondary font-body font-bold mb-6 hover:gap-3 transition-all"
                         >
                             <ArrowLeft className="h-4 w-4" /> Back to Blog
@@ -71,9 +97,9 @@ const BlogDetailPage = () => {
             <section className="py-20">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto">
-                        <div className="prose prose-lg prose-slate max-w-none font-body text-muted-foreground leading-relaxed whitespace-pre-line">
-                            {blog.content}
-                        </div>
+                        <div className="prose prose-lg prose-slate max-w-none font-body text-muted-foreground leading-relaxed"
+                             dangerouslySetInnerHTML={{ __html: blog.content }}
+                        />
 
                         <div className="mt-16 pt-8 border-t border-border flex items-center justify-between">
                             <div className="flex items-center gap-4">

@@ -1,9 +1,35 @@
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, User, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { blogs } from "@/data/blogData";
+import { fetchBlogs } from "@/data/blogData";
+import { useState, useEffect } from "react";
+import type { BlogPost } from "@/data/blogData";
 
 const BlogSection = () => {
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadBlogs = async () => {
+      const fetchedBlogs = await fetchBlogs();
+      setBlogs(fetchedBlogs.slice(0, 3)); // Show only 3 blogs in the section
+      setLoading(false);
+    };
+    loadBlogs();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="blog" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="blog" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -35,7 +61,7 @@ const BlogSection = () => {
               <Link to={`/blog/${blog.id}`} className="block">
                 <div className="relative overflow-hidden aspect-video">
                   <img
-                    src={blog.image}
+                    src={blog.image.startsWith('https://picsum.photos') ? blog.image : 'https://picsum.photos/seed/' + blog.id + '/800/450'}
                     alt={blog.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />

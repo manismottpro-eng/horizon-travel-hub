@@ -1,12 +1,24 @@
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, User, Clock, Search } from "lucide-react";
 import { Link } from "react-router-dom";
-import { blogs } from "@/data/blogData";
-import { useState } from "react";
+import { fetchBlogs } from "@/data/blogData";
+import { useState, useEffect } from "react";
+import type { BlogPost } from "@/data/blogData";
 
 const BlogPage = () => {
     const [search, setSearch] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
+    const [blogs, setBlogs] = useState<BlogPost[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadBlogs = async () => {
+            const fetchedBlogs = await fetchBlogs();
+            setBlogs(fetchedBlogs);
+            setLoading(false);
+        };
+        loadBlogs();
+    }, []);
 
     const categories = ["All", ...new Set(blogs.map(b => b.category))];
 
@@ -16,6 +28,35 @@ const BlogPage = () => {
         const matchesCategory = selectedCategory === "All" || b.category === selectedCategory;
         return matchesSearch && matchesCategory;
     });
+
+    // Helper function to fetch featured media URL
+    const getFeaturedImageUrl = async (imageUrl: string) => {
+        if (imageUrl.startsWith('https://picsum.photos')) {
+            return imageUrl;
+        }
+        try {
+            const response = await fetch(imageUrl);
+            if (response.ok) {
+                const data = await response.json();
+                return data.source_url;
+            }
+        } catch (error) {
+            console.error('Error fetching featured image:', error);
+        }
+        return 'https://picsum.photos/seed/default/800/450';
+    };
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-background pt-24 pb-20">
+                <div className="container mx-auto px-4">
+                    <div className="flex justify-center items-center h-64">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-background pt-24 pb-20">
@@ -81,7 +122,7 @@ const BlogPage = () => {
                         >
                             <Link to={`/blog/${blog.id}`} className="block overflow-hidden aspect-video">
                                 <img
-                                    src={blog.image}
+                                    src={blog.image.startsWith('https://picsum.photos') ? blog.image : 'https://picsum.photos/seed/' + blog.id + '/800/450'}
                                     alt={blog.title}
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 />

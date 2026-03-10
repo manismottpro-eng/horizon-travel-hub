@@ -1,100 +1,113 @@
-import dubaiImg from "@/assets/dubai.jpg";
-import londonImg from "@/assets/london.jpg";
-import visaImg from "@/assets/visa-services.jpg";
-
-export interface BlogPost {
-    id: string;
-    image: string;
-    category: string;
-    title: string;
-    excerpt: string;
-    content: string;
-    author: string;
-    date: string;
-    readTime: string;
+// API Types for SMOT Visa Blog Posts
+export interface ApiBlogPost {
+  id: number;
+  date: string;
+  date_gmt: string;
+  guid: {
+    rendered: string;
+  };
+  modified: string;
+  modified_gmt: string;
+  slug: string;
+  status: string;
+  type: string;
+  link: string;
+  title: {
+    rendered: string;
+  };
+  content: {
+    rendered: string;
+    protected: boolean;
+  };
+  excerpt: {
+    rendered: string;
+    protected: boolean;
+  };
+  author: number;
+  featured_media: number;
+  comment_status: string;
+  ping_status: string;
+  sticky: boolean;
+  template: string;
+  format: string;
+  meta: {
+    footnotes: string;
+  };
+  categories: number[];
+  tags: number[];
+  class_list: string[];
+  _links: any;
 }
 
-export const blogs: BlogPost[] = [
-    {
-        id: "us-visa-guide",
-        image: visaImg,
-        category: "Visa Tips",
-        title: "Complete Guide to US Tourist Visa Application in 2026",
-        excerpt: "Everything you need to know about applying for a B1/B2 visa, from documents to interview tips.",
-        content: `
-            Applying for a US Tourist Visa (B1/B2) can be a daunting process, but with the right preparation, it becomes much more manageable. In 2026, the process remains rigorous, focusing on your intent to return to your home country and your financial stability.
+// Application Blog Post Type (transformed from API response)
+export interface BlogPost {
+  id: string;
+  image: string;
+  category: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  date: string;
+  readTime: string;
+}
 
-            ### Key Requirements
-            1. **Valid Passport:** Must be valid for at least six months beyond your stay.
-            2. **DS-160 Form:** The online non-immigrant visa application.
-            3. **Application Fee:** Payment receipt for the visa processing fee.
-            4. **Photo:** Digital photo following specific US visa requirements.
+// Fetch blogs from SMOT Visa API
+export const fetchBlogs = async (): Promise<BlogPost[]> => {
+  try {
+    const response = await fetch('https://smotvisa.com/wp-json/wp/v2/posts?per_page=100');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const apiPosts: ApiBlogPost[] = await response.json();
+    
+    // Transform API response to our application format
+    return apiPosts.map(post => {
+      // Extract categories from class_list or use default
+      const categories = post.class_list.filter(cls => cls.startsWith('category-')).map(cls => 
+        cls.replace('category-', '').split('-').map(word => 
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ')
+      );
+      
+      // Clean excerpt - remove HTML tags and [&hellip;]
+      const cleanExcerpt = post.excerpt.rendered
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(/\[&\hellip;\]/g, '...') // Replace [&hellip;] with ...
+        .trim();
 
-            ### The Interview Process
-            The interview is the most critical part. You must demonstrate strong ties to your home country. Be prepared to discuss your job, family, and property ownership. Honesty is paramount—never provide misleading information.
+      return {
+        id: post.slug,
+        image: post.featured_media > 0 
+          ? `https://smotvisa.com/wp-json/wp/v2/media/${post.featured_media}?fields=source_url` 
+          : 'https://picsum.photos/seed/blog' + post.id + '/800/450',
+        category: categories.length > 0 ? categories[0] : 'Travel',
+        title: post.title.rendered,
+        excerpt: cleanExcerpt,
+        content: post.content.rendered,
+        author: 'SMOT Visa Team',
+        date: new Date(post.date).toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'short', 
+          day: 'numeric' 
+        }),
+        readTime: `${Math.ceil(post.content.rendered.length / 200)} min read`
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    // Fallback to empty array if API fails
+    return [];
+  }
+};
 
-            ### Tips for Success
-            *   Prepare all documents in an organized folder.
-            *   Be concise and direct in your answers during the interview.
-            *   Explain your travel plans clearly.
-            *   Provide evidence of financial means to cover your trip.
-        `,
-        author: "Smart Pro Team",
-        date: "Mar 5, 2026",
-        readTime: "6 min read"
-    },
-    {
-        id: "dubai-visit-tips",
-        image: dubaiImg,
-        category: "Destinations",
-        title: "Top 10 Things to Do in Dubai on Your First Visit",
-        excerpt: "From the Burj Khalifa to desert safaris, discover the best experiences Dubai has to offer.",
-        content: `
-            Dubai is a city of superlatives—home to the world's tallest building, the largest shopping mall, and some of the most luxurious hotels. If it's your first time, the variety of options can be overwhelming.
-
-            ### Must-Visit Landmarks
-            1. **Burj Khalifa:** Witness the breathtaking views from the 124th and 148th floors.
-            2. **The Dubai Mall:** More than just shopping; it's an entertainment hub with an aquarium and ice rink.
-            3. **Palm Jumeirah:** The iconic man-made island offers luxury resorts and beach clubs.
-            4. **Old Dubai (Al Fahidi):** Experience the traditional side of the city with its heritage area and gold souks.
-
-            ### Adventures and Experiences
-            *   **Desert Safari:** A quintessential Dubai experience featuring dune bashing, camel rides, and dinner under the stars.
-            *   **Dubai Marina:** Perfect for an evening stroll or a yacht cruise.
-            *   **Museum of the Future:** A glimpse into what lies ahead through innovative technology and design.
-
-            ### Planning Your Trip
-            The best time to visit is from November to March when the weather is pleasant for outdoor activities. Respect local customs and dress modestly in public areas.
-        `,
-        author: "Travel Desk",
-        date: "Feb 28, 2026",
-        readTime: "5 min read"
-    },
-    {
-        id: "uk-visa-updates",
-        image: londonImg,
-        category: "Travel Guide",
-        title: "UK Visa Requirements: What Changed in 2026",
-        excerpt: "Updated requirements and processing times for UK Standard Visitor Visa applications.",
-        content: `
-            The UK immigration landscape has seen several updates heading into 2026. Whether you're visiting for tourism, business, or family, staying informed about these changes is crucial for a successful application.
-
-            ### Standard Visitor Visa Updates
-            The Standard Visitor Visa remains the primary route for short-term stays. However, processing times and financial thresholds have been adjusted to reflect current economic conditions.
-
-            ### Essential Documentation
-            *   **Financial Evidence:** 6 months of bank statements are now strictly required.
-            *   **Accommodation Proof:** Confirmed bookings or a letter from your host.
-            *   **Ties to Home:** Employment letters must specifically mention approved leave dates.
-
-            ### Digitalization of the Process
-            The UK is moving towards a fully digital immigration system. Many applicants can now use the 'UK Immigration: ID Check' app, reducing the need for physical biometrics appointments in certain regions.
-
-            ### Processing Times
-            Standard processing is currently averaging 3 weeks, but we recommend applying at least 2 months in advance to account for seasonal peaks.
-        `,
-        author: "Visa Expert",
-        date: "Feb 20, 2026",
-        readTime: "4 min read"
-    },
-];
+// Helper function to fetch a single blog by slug
+export const fetchBlogBySlug = async (slug: string): Promise<BlogPost | undefined> => {
+  try {
+    const blogs = await fetchBlogs();
+    return blogs.find(blog => blog.id === slug);
+  } catch (error) {
+    console.error('Error fetching blog by slug:', error);
+    return undefined;
+  }
+};
