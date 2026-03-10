@@ -1,14 +1,49 @@
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const InquiryForm = () => {
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        alert("Thank you! We'll get back to you soon.");
-        setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+        setIsLoading(true);
+
+        try {
+            const response = await fetch("http://localhost:5001/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                toast({
+                    title: "Success!",
+                    description: "Your inquiry has been sent. We'll get back to you soon.",
+                    variant: "default",
+                });
+                setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+            } else {
+                toast({
+                    title: "Error",
+                    description: "Failed to send your inquiry. Please try again later.",
+                    variant: "destructive",
+                });
+            }
+        } catch (error) {
+            console.error("Error sending inquiry:", error);
+            toast({
+                title: "Error",
+                description: "Failed to send your inquiry. Please check your internet connection.",
+                variant: "destructive",
+            });
+        }
+
+        setIsLoading(false);
     };
 
     return (
@@ -87,10 +122,17 @@ const InquiryForm = () => {
 
                 <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-secondary text-secondary-foreground font-body font-bold text-base rounded-2xl shadow-gold hover:opacity-90 transition-all group mt-2"
+                    disabled={isLoading}
+                    className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-secondary text-secondary-foreground font-body font-bold text-base rounded-2xl shadow-gold hover:opacity-90 transition-all group mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                    <Send className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    Submit Inquiry
+                    {isLoading ? (
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    ) : (
+                        <>
+                            <Send className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            Submit Inquiry
+                        </>
+                    )}
                 </button>
             </form>
         </motion.div>
