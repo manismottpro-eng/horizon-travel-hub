@@ -84,7 +84,7 @@ const Footer = () => {
 
           {/* SEO / Service Areas */}
           <div>
-            <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Service Hubs</h4>
+            <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Our Presence</h4>
             <p className="text-[11px] font-body text-primary-foreground/50 mb-4">
               Premium Passport & Visa Services available across key locations in Bangalore:
             </p>
@@ -115,10 +115,10 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="space-y-1">
             <p className="text-xs font-body text-primary-foreground/50">
-              © 2026 SmotPro Overseas Co LLC. All rights reserved.
+              SmotPro visa
             </p>
             <p className="text-[10px] font-body text-primary-foreground/30">
-              Managed by Smotpro Overseas LLP.
+              Managed by Smotpro visa Team.
             </p>
           </div>
 

@@ -1,21 +1,40 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send, Globe, Star, Info } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { offices, Office } from "@/data/officeData";
-import { toast } from "@/hooks/use-toast";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { offices, Office } from "../data/officeData";
+import { toast } from "../hooks/use-toast";
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
     const [activeOffice, setActiveOffice] = useState<Office>(offices[0]);
     const [isLoading, setIsLoading] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
+
+    // Set active office based on URL parameter
+    useEffect(() => {
+        const branchId = searchParams.get("branch");
+        if (branchId) {
+            const office = offices.find(office => office.id === branchId);
+            if (office) {
+                setActiveOffice(office);
+            }
+        }
+    }, [searchParams]);
+
+    // Update URL when active office changes
+    const handleOfficeChange = (office: Office) => {
+        setActiveOffice(office);
+        setSearchParams({ branch: office.id });
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:5001/api/send-email", {
+            const response = await fetch("https://smot-pro-backend-visa.vercel.app/api/send-email", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -71,7 +90,7 @@ const ContactPage = () => {
                     {offices.map((office) => (
                         <button
                             key={office.id}
-                            onClick={() => setActiveOffice(office)}
+                            onClick={() => handleOfficeChange(office)}
                             className={`px-4 py-2 rounded-full font-body font-bold text-xs transition-all shadow-sm ${activeOffice.id === office.id
                                 ? "bg-secondary text-secondary-foreground shadow-gold"
                                 : "bg-card text-muted-foreground hover:bg-muted border border-border"

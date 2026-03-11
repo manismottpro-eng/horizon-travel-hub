@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, User, Clock, Search } from "lucide-react";
 import { Link } from "react-router-dom";
-import { fetchBlogs } from "@/data/blogData";
+import { fetchBlogs } from "../data/blogData";
 import { useState, useEffect } from "react";
-import type { BlogPost } from "@/data/blogData";
+import type { BlogPost } from "../data/blogData";
 
 const BlogPage = () => {
     const [search, setSearch] = useState("");
@@ -143,7 +143,7 @@ const BlogPage = () => {
                                     </h3>
                                 </Link>
                                 <p className="text-sm font-body text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
-                                    {blog.excerpt}
+                                    {blog.excerpt.replace(/<[^>]*>/g, '').replace(/&hellip;/g, '...')}
                                 </p>
 
                                 <div className="mt-auto pt-6 border-t border-border flex items-center justify-between">

@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, User, Clock, Share2 } from "lucide-react";
-import { fetchBlogBySlug } from "@/data/blogData";
+import { fetchBlogBySlug } from "../data/blogData";
 import { useState, useEffect } from "react";
-import type { BlogPost } from "@/data/blogData";
+import type { BlogPost } from "../data/blogData";
 
 const BlogDetailPage = () => {
     const { blogId } = useParams<{ blogId: string }>();
@@ -65,7 +65,7 @@ const BlogDetailPage = () => {
                             to="/blog"
                             className="inline-flex items-center gap-2 text-secondary font-body font-bold mb-6 hover:gap-3 transition-all"
                         >
-                            <ArrowLeft className="h-4 w-4" /> Back to Blog
+                            <ArrowLeft className="h-4 w-4" /> Blogs
                         </Link>
                         <span className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-body font-bold rounded-full mb-4 inline-block">
                             {blog.category}
@@ -109,10 +109,10 @@ const BlogDetailPage = () => {
                                 </button>
                             </div>
                             <Link
-                                to="/"
+                                to="/blog"
                                 className="px-6 py-2 bg-primary text-primary-foreground rounded-full text-sm font-bold hover:bg-primary/90 transition-all"
                             >
-                                Back to Home
+                                Back to Blogs
                             </Link>
                         </div>
                     </div>

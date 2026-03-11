@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "/newlogo.png";
+import logo from "@/assets/image-Photoroom.png";
 import { navLinks } from "@/data/navigationData";
 
 const Navbar = () => {
@@ -51,7 +51,7 @@ const Navbar = () => {
       <nav className="sticky top-0 z-50 bg-primary/95 backdrop-blur-md shadow-card border-b border-primary-foreground/10">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
           <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
-            <img src={logo} alt="Smart Pro Visa" className="h-16 w-auto" />
+            <img src={logo} alt="Smart Pro Visa" className="h-28 w-auto" />
           </Link>
 
           {/* Desktop nav */}
