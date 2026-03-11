@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { useState } from "react";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "../hooks/use-toast";
 
 const InquiryForm = () => {
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
@@ -12,7 +12,7 @@ const InquiryForm = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:5001/api/send-email", {
+            const response = await fetch("https://smot-pro-backend-visa.vercel.app/api/send-email", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
