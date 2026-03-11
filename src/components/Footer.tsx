@@ -1,8 +1,8 @@
 import { Facebook, Instagram, Twitter, Youtube, ArrowUp, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "/newlogo.png";
-import { navLinks, services } from "@/data/navigationData";
-import { offices, seoLocations } from "@/data/officeData";
+import { navLinks, services } from "../data/navigationData";
+import { offices, seoLocations } from "../data/officeData";
 
 const Footer = () => {
   return (
@@ -64,48 +64,28 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Our Presence (Offices) */}
+          {/* Our Presence */}
           <div>
             <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Our Presence</h4>
             <ul className="space-y-5">
-              {offices.map((office) => (
-                <li key={office.id} className="group">
-                  <Link to={`/offices/${office.id}`} className="flex gap-3" onClick={() => window.scrollTo(0, 0)}>
+              {[
+                "Maharashtra",
+                "Delhi",
+                "Andhra Pradesh",
+                "Karnataka",
+                "Ahmedabad",
+                "Jaipur"
+              ].map((location) => (
+                <li key={location} className="group">
+                  <Link to="/contact" className="flex gap-3" onClick={() => window.scrollTo(0, 0)}>
                     <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm font-body font-bold text-primary-foreground/90 group-hover:text-secondary transition-colors">{office.city}</p>
-                      <p className="text-[11px] font-body text-primary-foreground/50 leading-tight mt-1">{office.name}</p>
+                      <p className="text-sm font-body font-bold text-primary-foreground/90 group-hover:text-secondary transition-colors">{location}</p>
                     </div>
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* SEO / Service Areas */}
-          <div>
-            <h4 className="text-xs font-body font-bold uppercase tracking-[0.2em] text-secondary mb-6">Our Presence</h4>
-            <p className="text-[11px] font-body text-primary-foreground/50 mb-4">
-              Premium Passport & Visa Services available across key locations in Bangalore:
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {seoLocations.map((loc) => (
-                <span
-                  key={loc}
-                  className="px-2 py-1 bg-primary-foreground/5 rounded text-[10px] font-body text-primary-foreground/40 hover:bg-secondary/20 hover:text-secondary cursor-default transition-colors"
-                >
-                  {loc}
-                </span>
-              ))}
-            </div>
-            <div className="mt-8 pt-6 border-t border-primary-foreground/10 space-y-3">
-              <div className="flex items-center gap-2 text-xs text-primary-foreground/60">
-                <Phone className="h-3 w-3 text-secondary" /> +91 9355532707
-              </div>
-              <div className="flex items-center gap-2 text-xs text-primary-foreground/60">
-                <Mail className="h-3 w-3 text-secondary" /> info@smotprollp.in
-              </div>
-            </div>
           </div>
         </div>
       </div>
