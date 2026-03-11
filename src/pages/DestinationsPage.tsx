@@ -171,7 +171,7 @@ const DestinationsPage = () => {
                                 transition={{ delay: idx * 0.05 }}
                             >
                                 <Link
-                                    to={`/visa/${country.id}`}
+                                    to="/contact"
                                     className="flex flex-col items-center gap-2 p-6 bg-muted/20 rounded-2xl border border-transparent hover:border-secondary/30 hover:bg-secondary/5 hover:shadow-sm transition-all text-center"
                                 >
                                     <span className="text-4xl mb-1 transform group-hover:scale-110 transition-transform">{country.flag}</span>
