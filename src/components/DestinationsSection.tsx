@@ -48,7 +48,6 @@ const destinations = [
 const moreCountries = [
   { id: "canada", name: "Canada", flag: "🇨🇦" },
   { id: "australia", name: "Australia", flag: "🇦🇺" },
-  { id: "kuwait", name: "Kuwait", flag: "🇰🇼" },
   { id: "#", name: "Malaysia", flag: "🇲🇾" },
   { id: "#", name: "Singapore", flag: "🇸🇬" },
   { id: "#", name: "Thailand", flag: "🇹🇭" },

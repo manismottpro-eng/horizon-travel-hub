@@ -33,11 +33,11 @@ const Navbar = () => {
       <div className="bg-primary font-body text-sm">
         <div className="container mx-auto flex items-center justify-between px-4 py-2">
           <div className="flex items-center gap-4">
-            <a href="tel:+1234567890" className="flex items-center gap-1 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-              <Phone className="h-3 w-3" /> +1 (234) 567-890
+            <a href="tel:8879822338" className="flex items-center gap-1 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <Phone className="h-3 w-3" /> +91-8879822338
             </a>
-            <a href="mailto:info@smartprovisa.com" className="hidden sm:flex items-center gap-1 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-              <Mail className="h-3 w-3" /> info@smartprovisa.com
+            <a href="mailto:info@smotvisa.com" className="hidden sm:flex items-center gap-1 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <Mail className="h-3 w-3" /> info@smotvisa.com
             </a>
           </div>
           <div className="flex items-center gap-3 text-primary-foreground/80">

@@ -100,7 +100,6 @@ const InquiryForm = () => {
                         className="w-full px-5 py-4 rounded-2xl border border-border bg-muted/30 text-foreground font-body text-sm focus:ring-2 focus:ring-secondary/50 focus:border-secondary outline-none transition-all appearance-none cursor-pointer"
                     >
                         <option value="">Select a service</option>
-                        <option value="passport">Passport Services</option>
                         <option value="visa-consulting">Visa Consulting</option>
                         <option value="tourist-visa">Tourist Visa</option>
                         <option value="business-visa">Business Visa</option>

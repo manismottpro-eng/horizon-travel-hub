@@ -31,6 +31,6 @@ export const servicesData = [
         title: "24/7 Support",
         description: "Round-the-clock assistance for all your travel needs, before and during your trip.",
         features: ["Live Chat", "Phone Support", "Email", "WhatsApp"],
-        href: "#contact"
+        href: "/contact"
     },
 ];
