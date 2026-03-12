@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-travel.jpg";
 import InquiryForm from "./InquiryForm";
+import { Link } from "react-router-dom";
 
 const stats = [
   { icon: Shield, value: "99%", label: "Success Rate" },
@@ -64,12 +65,13 @@ const HeroSection = () => {
               >
                 Explore Our Services <ArrowRight className="h-4 w-4" />
               </a>
-              <a
-                href="/contact?branch=cv-raman-nagar-bangalore"
+              <Link
+                to="/contact?branch=cv-raman-nagar-bangalore"
                 className="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary-foreground/30 text-primary-foreground font-body font-semibold text-sm rounded-full hover:bg-primary-foreground/10 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
               >
                 Contact Us
-              </a>
+              </Link>
             </motion.div>
 
             <motion.div
