@@ -65,7 +65,7 @@ const HeroSection = () => {
                 Explore Our Services <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="/contact"
+                href="/contact?branch=cv-raman-nagar-bangalore"
                 className="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary-foreground/30 text-primary-foreground font-body font-semibold text-sm rounded-full hover:bg-primary-foreground/10 transition-all"
               >
                 Contact Us

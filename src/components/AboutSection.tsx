@@ -42,7 +42,7 @@ const AboutSection = () => {
               Making Travel Dreams Come True Since 2014
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-6">
-              Smart Pro Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience.
+              Smart Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience.
               Whether you need a visa for the US, UK, GCC countries, or anywhere else in the world — we handle the entire
               process from documentation to approval, so you can focus on packing your bags.
             </p>
