@@ -20,7 +20,7 @@ const BlogSection = () => {
 
   if (loading) {
     return (
-      <section id="blog" className="py-20 bg-background">
+      <section id="blog" className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
@@ -31,7 +31,7 @@ const BlogSection = () => {
   }
 
   return (
-    <section id="blog" className="py-20 bg-background">
+    <section id="blog" className="py-12 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

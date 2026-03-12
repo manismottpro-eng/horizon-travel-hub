@@ -26,7 +26,7 @@ export const offices: Office[] = [
         description: "Our Mumbai office in Bandra East serves as a key hub for visa processing and travel documentation in the financial capital of India.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     },
     {
         id: "kandivali-mumbai",
@@ -40,7 +40,7 @@ export const offices: Office[] = [
         description: "Conveniently located in Kandivali, our Mumbai office provides expert visa services for residents of the western suburbs.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     },
     {
         id: "shivaji-nagar-pune",
@@ -54,7 +54,7 @@ export const offices: Office[] = [
         description: "Our Pune office in Shivaji Nagar caters to the vibrant student and professional community in Maharashtra's cultural capital.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018 —trusted by thousands, focused on real support every step."
     },
     {
         id: "yerwada-pune",
@@ -68,7 +68,7 @@ export const offices: Office[] = [
         description: "Located in Yerwada, our Pune office provides comprehensive visa and travel services to residents of eastern Pune.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     },
     {
         id: "delhi",
@@ -82,7 +82,7 @@ export const offices: Office[] = [
         description: "Our Delhi office in Connaught Place serves as a strategic hub for visa services in India's capital city.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     },
     {
         id: "walter-visakhapatnam",
@@ -96,7 +96,7 @@ export const offices: Office[] = [
         description: "Our Visakhapatnam office in Walter area caters to the needs of travelers from Andhra Pradesh's coastal region.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     },
     {
         id: "cv-raman-nagar-bangalore",
@@ -110,7 +110,7 @@ export const offices: Office[] = [
         description: "Our premier office in Bengaluru serves as a hub for visa processing and travel documentation. Located in the tech corridor, we provide expert guidance for international travel.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     },
     {
         id: "ahmedabad",
@@ -124,7 +124,7 @@ export const offices: Office[] = [
         description: "Our Ahmedabad office provides comprehensive visa services to the vibrant business community in Gujarat.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     },
     {
         id: "jaipur",
@@ -138,7 +138,7 @@ export const offices: Office[] = [
         description: "Our Jaipur office caters to the travel needs of residents in Rajasthan, providing expert visa and documentation services.",
         images: ["https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"],
         features: ["Express Visa Processing", "Document Verification", "Consultation Hub", "24/7 Support Access"],
-        aboutOrg: "Making passports and visas simple since 2014—trusted by thousands, focused on real support every step."
+        aboutOrg: "Making passports and visas simple since 2018—trusted by thousands, focused on real support every step."
     }
 ];
 

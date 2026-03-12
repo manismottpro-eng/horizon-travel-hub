@@ -5,7 +5,7 @@ import travelersImg from "@/assets/travelers.jpg";
 
 const highlights = [
   "10+ Years of Experience in Visa Processing",
-  "Trusted by 10,000+ Happy Travelers",
+  "Trusted by 5000+ Happy Travelers",
   "99% Visa Approval Success Rate",
   "Dedicated Support Team Available 24/7",
   "Partnerships with Top Airlines & Hotels",
@@ -14,7 +14,7 @@ const highlights = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-card">
+    <section id="about" className="py-12 bg-card">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -39,7 +39,7 @@ const AboutSection = () => {
           >
             <span className="text-sm font-body font-semibold text-secondary uppercase tracking-widest">About Us</span>
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mt-3 mb-4">
-              Making Travel Dreams Come True Since 2014
+              Making Travel Dreams Come True Since 2018
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-6">
               Smot Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience.

@@ -29,7 +29,7 @@ const HeroSection = () => {
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary/20 border border-secondary/30 rounded-full text-sm font-body font-medium text-primary-foreground mb-6">
                 <Globe className="h-4 w-4" />
-                Trusted by 10,000+ Travelers Worldwide
+                Trusted by 5000+ Travelers Worldwide
               </span>
             </motion.div>
 

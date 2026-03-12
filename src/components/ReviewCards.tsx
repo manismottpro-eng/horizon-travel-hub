@@ -21,7 +21,7 @@ const ReviewCards = () => {
 
   if (loading) {
     return (
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
@@ -32,7 +32,7 @@ const ReviewCards = () => {
   }
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-12 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

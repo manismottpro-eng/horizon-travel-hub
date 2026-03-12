@@ -5,7 +5,7 @@ import travelersImg from "@/assets/travelers.jpg";
 
 const highlights = [
     "10+ Years of Experience in Visa Processing",
-    "Trusted by 10,000+ Happy Travelers",
+    "Trusted by 5000+ Happy Travelers",
     "99% Visa Approval Success Rate",
     "Dedicated Support Team Available 24/7",
     "Partnerships with Top Airlines & Hotels",
@@ -48,7 +48,7 @@ const AboutPage = () => {
                     >
                         <span className="text-sm font-body font-semibold text-secondary uppercase tracking-widest">Our Story</span>
                         <h1 className="text-4xl sm:text-5xl font-display font-bold text-foreground mt-3 mb-6">
-                            Making Travel Dreams Come True Since 2014
+                            Making Travel Dreams Come True Since 2018
                         </h1>
                         <p className="text-muted-foreground font-body text-lg leading-relaxed mb-8">
                             Smart Pro Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience.

@@ -30,23 +30,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="bg-primary font-body text-sm">
-        <div className="container mx-auto flex items-center justify-between px-4 py-2">
-          <div className="flex items-center gap-4">
-            <a href="tel:8879822338" className="flex items-center gap-1 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-              <Phone className="h-3 w-3" /> +91-8879822338
-            </a>
-            <a href="mailto:info@smotvisa.com" className="hidden sm:flex items-center gap-1 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-              <Mail className="h-3 w-3" /> info@smotvisa.com
-            </a>
-          </div>
-          <div className="flex items-center gap-3 text-primary-foreground/80">
-            <span className="hidden md:inline">Mon - Sat: 9AM - 7PM</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main nav */}
       <nav className="sticky top-0 z-50 bg-primary/95 backdrop-blur-md shadow-card border-b border-primary-foreground/10">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">

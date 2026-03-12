@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { visaData } from "@/data/visaData";
 import { CheckCircle2, Clock, Globe, ArrowRight, ShieldCheck } from "lucide-react";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 const VisaDetailPage = () => {
     const { countryId } = useParams<{ countryId: string }>();
@@ -77,6 +78,58 @@ const VisaDetailPage = () => {
                 </div>
             </section>
 
+            {/* Why Choose Us */}
+            {data.id === "us" && (
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="max-w-4xl mx-auto"
+                        >
+                            <h2 className="text-3xl font-display font-bold text-foreground mb-8 text-center">Why Choose SmotVisa for Your USA Visa?</h2>
+                            <p className="text-lg text-muted-foreground font-body leading-relaxed mb-8 text-center">
+                                Your Trusted Partner for USA Visa Assistance. Dreaming of visiting the United States for business, tourism or for family reunions? 
+                                At SmotVisa, we make the complex USA visa process simple, transparent, and stress-free for Indian applicants. 
+                                With years of expertise and a proven track record, our team ensures you get end-to-end guidance tailored to your visa needs.
+                            </p>
+                            
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="p-6 bg-card rounded-2xl shadow-card border border-border">
+                                    <h3 className="text-xl font-display font-bold text-foreground mb-4">Expert Consultation</h3>
+                                    <p className="text-sm font-body text-muted-foreground">Personalized guidance on the right visa type (B1/B2).</p>
+                                </div>
+                                <div className="p-6 bg-card rounded-2xl shadow-card border border-border">
+                                    <h3 className="text-xl font-display font-bold text-foreground mb-4">Hassle-Free Documentation</h3>
+                                    <p className="text-sm font-body text-muted-foreground">We help you prepare error-free applications and supporting papers.</p>
+                                </div>
+                                <div className="p-6 bg-card rounded-2xl shadow-card border border-border">
+                                    <h3 className="text-xl font-display font-bold text-foreground mb-4">Mock Interviews & Preparation</h3>
+                                    <p className="text-sm font-body text-muted-foreground">Boost your confidence with our one-on-one training sessions.</p>
+                                </div>
+                                <div className="p-6 bg-card rounded-2xl shadow-card border border-border">
+                                    <h3 className="text-xl font-display font-bold text-foreground mb-4">Step-by-Step Support</h3>
+                                    <p className="text-sm font-body text-muted-foreground">From DS-160 form filling to appointment scheduling, we handle it all.</p>
+                                </div>
+                                <div className="p-6 bg-card rounded-2xl shadow-card border border-border md:col-span-2">
+                                    <h3 className="text-xl font-display font-bold text-foreground mb-4">High Success Rate</h3>
+                                    <p className="text-sm font-body text-muted-foreground">Trusted by thousands of applicants across India.</p>
+                                </div>
+                            </div>
+
+                            <div className="mt-12 p-8 bg-primary/5 rounded-2xl border border-primary/20">
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-4 text-center">Simple, Transparent, and Reliable</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed text-center">
+                                    Applying for a U.S. visa can feel overwhelming, but with SmotVisa, you are never alone. 
+                                    Our experts walk you through every step, ensuring accuracy and increasing your chances of approval.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            )}
+
             {/* Content */}
             <section id="requirements" className="py-20">
                 <div className="container mx-auto px-4">
@@ -123,18 +176,23 @@ const VisaDetailPage = () => {
                 </div>
             </section>
 
+
             {/* FAQs */}
             <section className="py-20 bg-muted/50">
                 <div className="container mx-auto px-4 max-w-4xl">
                     <h2 className="text-3xl font-display font-bold text-foreground mb-12 text-center text-primary">Frequently Asked Questions</h2>
-                    <div className="space-y-4">
+                    <Accordion type="single" collapsible className="space-y-4">
                         {data.faqs.map((faq, idx) => (
-                            <div key={idx} className="p-6 bg-card rounded-2xl shadow-card border border-border">
-                                <h4 className="text-lg font-display font-bold text-foreground mb-3">{faq.question}</h4>
-                                <p className="text-sm font-body text-muted-foreground leading-relaxed">{faq.answer}</p>
-                            </div>
+                            <AccordionItem key={idx} value={`item-${idx}`} className="bg-card rounded-2xl shadow-card border border-border overflow-hidden">
+                                <AccordionTrigger className="px-6 text-left hover:no-underline">
+                                    <span className="text-lg font-display font-bold text-foreground">{faq.question}</span>
+                                </AccordionTrigger>
+                                <AccordionContent className="px-6">
+                                    <p className="text-sm font-body text-muted-foreground leading-relaxed">{faq.answer}</p>
+                                </AccordionContent>
+                            </AccordionItem>
                         ))}
-                    </div>
+                    </Accordion>
                 </div>
             </section>
 

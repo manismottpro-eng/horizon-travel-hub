@@ -18,19 +18,19 @@ export const visaData: Record<string, VisaInfo> = {
         id: "us",
         name: "United States",
         flag: "🇺🇸",
-        title: "US B1/B2 Visitor Visa",
-        description: "The B1/B2 visa is for people who want to visit the United States temporarily for business (B1), tourism, or medical treatment (B2).",
+        title: "USA Visa for Indians",
+        description: "Get your USA visa approval within days of applying. Our service ensures you get your visa on time through helping you in the application process and reliable support.",
         processingTime: "Varies (Appointment Based)",
         validity: "Up to 10 Years",
         entryType: "Multiple Entry",
         price: "$249",
         requirements: [
-            "Valid passport (at least 6 months validity)",
-            "Digital photograph meeting US visa requirements",
-            "Form DS-160 confirmation page",
-            "Visa fee payment receipt",
-            "Evidence of funds for the trip",
-            "Proof of ties to home country"
+            "Valid Indian passport (with at least 6 months validity beyond your intended stay)",
+            "Completed DS-160 application form",
+            "Visa application fee payment receipt",
+            "Recent U.S.-specification photograph",
+            "Appointment confirmation page",
+            "Supporting documents such as proof of employment, financial statements, travel itinerary, or an invitation letter (if applicable)"
         ],
         steps: [
             { title: "Form DS-160", description: "Complete the online Nonimmigrant Visa Electronic Application." },
@@ -39,8 +39,19 @@ export const visaData: Record<string, VisaInfo> = {
             { title: "Attend Interview", description: "Present your documents and answer questions from the consular officer." }
         ],
         faqs: [
-            { question: "How long can I stay on a B1/B2 visa?", answer: "The period of stay is determined by the immigration officer at the port of entry, typically up to 6 months." },
-            { question: "Can I renew my US visa without an interview?", answer: "Many applicants qualify for an interview waiver (dropbox) if their previous visa expired recently." }
+            { question: "What is a USA B1/B2 visa?", answer: "The B1/B2 is a temporary, non-immigrant visa for Indians who wish to travel to the United States for short-term purposes such as business meetings, conferences, tourism, family visits, or medical treatment." },
+            { question: "Do I need a B1/B2 visa before traveling to the U.S.?", answer: "Yes. Indian citizens must obtain a valid B1/B2 visa from a U.S. Embassy or Consulate before traveling, as there is no visa-on-arrival facility for Indians in the U.S." },
+            { question: "How long is a B1/B2 visa valid for Indian citizens?", answer: "Most Indian applicants receive a 10-year multiple entry visa, allowing them to visit the U.S. multiple times. However, each stay is generally limited to a maximum of 6 months per visit, as determined by U.S. immigration officers at the port of entry." },
+            { question: "What documents are required for a B1/B2 visa application?", answer: "Valid Indian passport (with at least 6 months validity beyond your intended stay), completed DS-160 application form, visa application fee payment receipt, recent U.S.-specification photograph, appointment confirmation page, and supporting documents such as proof of employment, financial statements, travel itinerary, or an invitation letter (if applicable)." },
+            { question: "Is an interview mandatory for B1/B2 visa applicants?", answer: "Yes, most Indian applicants must attend a personal interview at the U.S. Embassy or Consulate. However, some may qualify for an interview waiver / dropbox if they are renewing a recently expired visa and meet eligibility criteria." },
+            { question: "How long does the B1/B2 visa process take?", answer: "Appointment wait times vary by location and season. After your interview, visa processing usually takes a few business days, but in some cases it may take longer. We recommend applying at least 2–3 months before your planned travel date." },
+            { question: "Can I extend my stay in the U.S. on a B1/B2 visa?", answer: "Yes, extensions are possible by applying to U.S. Citizenship and Immigration Services (USCIS) before your authorized stay expires. However, approvals are not guaranteed, so it’s best to plan your trip within the allowed period." },
+            { question: "Can I work in the U.S. on a B1/B2 visa?", answer: "No. The B1/B2 visa strictly prohibits employment or long-term study. It is only for business visits, tourism, medical treatment, or family visits." },
+            { question: "If my B1/B2 visa is refused, can I reapply?", answer: "Yes. You can reapply after correcting the issues that led to your refusal. A new DS-160 and visa fee payment are required for each fresh application." },
+            { question: "What are common reasons for U.S. B1/B2 visa rejection?", answer: "Insufficient proof of ties to India (family, job, property, etc.), weak financial evidence of being able to afford the trip, inconsistent or unclear purpose of travel, past immigration violations in the U.S. or other countries." },
+            { question: "Do I need confirmed flight tickets or hotel bookings before applying?", answer: "No, it is not mandatory to book flights or hotels before your visa is approved. A tentative travel plan or itinerary is usually sufficient." },
+            { question: "Can I travel to the U.S. if my old passport has a valid visa?", answer: "Yes. If your B1/B2 visa is still valid in your old passport, you can travel with both the old and new passports together." },
+            { question: "How can SmotVisa help me with my B1/B2 visa application?", answer: "At SmotVisa, we assist Indian applicants with DS-160 form filling, document preparation, visa fee and appointment scheduling, mock interviews for confidence-building, and step-by-step support until your visa decision." }
         ]
     },
     uk: {

@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import dubaiImg from "@/assets/dubai.jpg";
 import londonImg from "@/assets/london.jpg";
-import travelersImg from "@/assets/travelers.jpg";
+import usImg from "@/assets/us.webp";
 import visaImg from "@/assets/visa-services.jpg";
 
 const destinations = [
@@ -29,7 +29,7 @@ const destinations = [
     id: "us",
     name: "United States",
     flag: "🇺🇸",
-    image: travelersImg,
+    image: usImg,
     visaType: "B1/B2 Visitor Visa",
     processing: "Appointment Based",
     price: "From $249",
@@ -57,13 +57,13 @@ const moreCountries = [
 
 const DestinationsSection = () => {
   return (
-    <section id="destinations" className="py-20 bg-muted/50">
+    <section id="destinations" className="py-8 bg-muted/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="text-sm font-body font-semibold text-secondary uppercase tracking-widest">Destinations</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mt-3 mb-4">
@@ -74,7 +74,7 @@ const DestinationsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {destinations.map((dest, idx) => (
             <motion.div
               key={dest.name}
@@ -88,12 +88,12 @@ const DestinationsSection = () => {
                 <div className="aspect-[3/4] relative">
                   <img src={dest.image} alt={dest.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-2xl">{dest.flag}</span>
                       <h3 className="text-lg font-display font-bold text-primary-foreground">{dest.name}</h3>
                     </div>
-                    <p className="text-xs font-body text-primary-foreground/70 mb-3">{dest.visaType}</p>
+                    <p className="text-xs font-body text-primary-foreground/70 mb-2">{dest.visaType}</p>
                     <div className="flex items-center justify-between">
                       <div>
                         <span className="text-xs font-body text-primary-foreground/60">Processing</span>
@@ -115,17 +115,17 @@ const DestinationsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-card rounded-2xl shadow-card border border-border p-8"
+          className="bg-card rounded-2xl shadow-card border border-border p-6"
         >
-          <h3 className="text-xl font-display font-bold text-foreground mb-6 text-center">
+          <h3 className="text-xl font-display font-bold text-foreground mb-5 text-center">
             We Also Process Visas For
           </h3>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
+          <div className="flex flex-wrap justify-center gap-2.5 mb-5">
             {moreCountries.map((country) => (
               <Link
                 key={country.name}
                 to={country.id === "#" ? "/contact" : `/visa/${country.id}`}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-muted rounded-full text-sm font-body font-medium hover:bg-secondary/10 hover:shadow-card transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 bg-muted rounded-full text-sm font-body font-medium hover:bg-secondary/10 hover:shadow-card transition-all cursor-pointer"
               >
                 <span className="text-lg">{country.flag}</span>
                 {country.name}
