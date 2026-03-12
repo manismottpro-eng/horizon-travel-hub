@@ -23,35 +23,27 @@ const OfficeDetailPage = () => {
     return (
         <div className="min-h-screen bg-background pt-24 pb-20">
             {/* Hero Section */}
-            <section className="relative h-[400px] overflow-hidden">
-                <img
-                    src={office.images[0]}
-                    alt={office.name}
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16">
-                    <div className="container mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
+            <section className="bg-primary py-16 md:py-24">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <Link
+                            to="/contact"
+                            className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors"
+                            onClick={() => window.scrollTo(0, 0)}
                         >
-                            <Link
-                                to="/contact"
-                                className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors"
-                                onClick={() => window.scrollTo(0, 0)}
-                            >
-                                <ArrowLeft className="h-4 w-4" /> Back to Contact
-                            </Link>
-                            <h1 className="text-4xl md:text-6xl font-display font-bold text-primary-foreground mb-4">
-                                {office.name}
-                            </h1>
-                            <div className="flex items-center gap-2 text-secondary font-body font-semibold uppercase tracking-wider text-sm">
-                                <MapPin className="h-4 w-4" /> {office.city} Office
-                            </div>
-                        </motion.div>
-                    </div>
+                            <ArrowLeft className="h-4 w-4" /> Back to Contact
+                        </Link>
+                        <h1 className="text-4xl md:text-6xl font-display font-bold text-primary-foreground mb-4">
+                            {office.name}
+                        </h1>
+                        <div className="flex items-center gap-2 text-secondary font-body font-semibold uppercase tracking-wider text-sm">
+                            <MapPin className="h-4 w-4" /> {office.city} Office
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -109,22 +101,6 @@ const OfficeDetailPage = () => {
                                 </div>
                             </div>
                         </motion.section>
-
-                        {/* Image Gallery (Placeholder for more images) */}
-                        <section className="space-y-6">
-                            <h2 className="text-2xl font-display font-bold text-foreground">Office Gallery</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                {office.images.map((img, i) => (
-                                    <div key={i} className="aspect-square rounded-2xl overflow-hidden border border-border group">
-                                        <img
-                                            src={img}
-                                            alt={`${office.name} view ${i + 1}`}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
                     </div>
 
                     {/* Sidebar / Quick Info */}

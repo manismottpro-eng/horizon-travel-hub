@@ -16,6 +16,7 @@ import BlogPage from "@/pages/BlogPage";
 import NotFound from "@/pages/NotFound";
 import Layout from "@/components/Layout";
 import ScrollToTop from "@/components/ScrollToTop";
+import VisaEligibilityPage from "@/pages/VisaEligibilityPage";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/visa/:countryId" element={<VisaDetailPage />} />
             <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/blog/:blogId" element={<BlogDetailPage />} />
+            <Route path="/visa-checker" element={<VisaEligibilityPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

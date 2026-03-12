@@ -73,4 +73,5 @@ export const navLinks = [
     { label: "Destinations", href: "/destinations" },
     { label: "Branches", href: "/contact", dropdown: branches },
     { label: "Blog", href: "/blog" },
+    { label: "Visa Checker", href: "/visa-checker" },
 ];
