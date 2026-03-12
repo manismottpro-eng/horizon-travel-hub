@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { navLinks } from "../data/navigationData";
+import logo from "../assets/small.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +51,11 @@ const Navbar = () => {
       <nav className="sticky top-0 z-50 bg-primary/95 backdrop-blur-md shadow-card border-b border-primary-foreground/10">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
           <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
-            <img src="/newlogo.png" alt="Smart Pro Visa" className="h-16 w-auto" />
+            <img src={logo} alt="SMOT VISA" className="h-16 w-auto" />
+            <div>
+              <h1 className="font-display font-bold text-2xl text-primary-foreground">SMOT VISA</h1>
+              <p className="text-xs font-body text-primary-foreground/70 uppercase tracking-wider">Visa & Travel Agency</p>
+            </div>
           </Link>
 
           {/* Desktop nav */}

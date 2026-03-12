@@ -98,6 +98,7 @@ const VisaEligibilityPage = () => {
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -115,6 +116,7 @@ const VisaEligibilityPage = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
     const calculatedScore = calculateScore(data);
     const resultText = getResult(calculatedScore);
     
@@ -158,6 +160,7 @@ const VisaEligibilityPage = () => {
     setScore(calculatedScore);
     setResult(resultText);
     setShowResult(true);
+    setIsLoading(false);
 
     // In a real app, you would send this data to a backend for storage
     console.log("Form data:", data);
@@ -412,8 +415,15 @@ const VisaEligibilityPage = () => {
                       />
                     </CardContent>
                     <CardFooter>
-                      <Button type="submit" className="w-full">
-                        Check Eligibility
+                      <Button type="submit" className="w-full" disabled={isLoading}>
+                        {isLoading ? (
+                          <div className="flex items-center gap-2">
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Checking Eligibility...
+                          </div>
+                        ) : (
+                          "Check Eligibility"
+                        )}
                       </Button>
                     </CardFooter>
                   </Card>

@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Twitter, Youtube, ArrowUp, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "/newlogo.png";
+import logo from "../assets/small.png";
 import { navLinks, services } from "../data/navigationData";
 import { offices, seoLocations } from "../data/officeData";
 
@@ -14,7 +14,9 @@ const Footer = () => {
           {/* Brand & Tagline */}
           <div className="space-y-6">
             <Link to="/">
-              <img src={logo} alt="SmotPro Overseas" className="h-16 w-auto mb-2 brightness-200" />
+              <img src={logo} alt="SMOT VISA" className="h-16 w-auto mb-2 brightness-200" />
+              <h2 className="font-display font-bold text-xl text-primary-foreground">SMOT VISA</h2>
+              <p className="text-xs font-body text-primary-foreground/70 uppercase tracking-wider">Visa & Travel Agency</p>
             </Link>
             <p className="text-sm font-body text-primary-foreground/70 leading-relaxed italic">
               "The status of the customer needs is monitored online with the help of our state of technology."
