@@ -58,27 +58,41 @@ export const visaData: Record<string, VisaInfo> = {
         id: "uk",
         name: "United Kingdom",
         flag: "🇬🇧",
-        title: "UK Standard Visitor Visa",
-        description: "Visit the UK for leisure, business, or other reasons for up to 6 months.",
-        processingTime: "15-20 Working Days",
-        validity: "6 Months / 2 Years / 5 Years",
+        title: "UK Visa for Indians – Tourist & Business Visitor Visa Assistance",
+        description: "Planning a UK holiday or a business trip to London, Manchester, Birmingham, or anywhere in the United Kingdom? Smotvisa makes your UK Tourist Visa and UK Business Visitor Visa process smooth, simple, and stress-free. We assist Indian travelers with complete document preparation, online application filing, biometrics support, and full guidance until your visa decision. With multiple branches across India, our experts ensure fast and error-free applications.",
+        processingTime: "Standard: 15–30 working days; Priority: 5–7 days; Super Priority: 24 hours",
+        validity: "6 months / 2 years / 5 years / 10 years",
         entryType: "Multiple Entry",
         price: "$199",
         requirements: [
-            "Valid passport",
-            "Proof of financial support",
-            "Travel itinerary",
-            "Employment details",
-            "Accommodation details"
+            "Valid passport (minimum 6 months validity)",
+            "Passport-size photos",
+            "Completed UK visa forms",
+            "Travel itinerary & purpose letter",
+            "6-month bank statements",
+            "Salary slips / ITR / business financials",
+            "Proof of funds for travel & stay",
+            "Accommodation planning",
+            "Travel history (previous visas)",
+            "Invitation letter from UK company (for business visa)",
+            "Company registration proofs (India) (for business visa)",
+            "Business relationship documents (for business visa)",
+            "Employer NOC or self-business letter (for business visa)"
         ],
         steps: [
-            { title: "Apply Online", description: "Fill out the online application form on the official GOV.UK website." },
-            { title: "Pay Fees", description: "Pay the visa fee and healthcare surcharge (if applicable)." },
-            { title: "Biometrics", description: "Visit a visa application center to provide your fingerprints and photograph." },
-            { title: "Decision", description: "Wait for your application to be processed and collect your passport." }
+            { title: "Profile Assessment", description: "We review your travel plan, eligibility, and purpose." },
+            { title: "Customized Document Checklist", description: "A simple, structured list based on Tourist or Business Visitor category." },
+            { title: "Document Preparation", description: "We help format, verify, and organize your entire file to avoid errors." },
+            { title: "Online Filing & Appointment Guidance", description: "We submit your application and schedule your VFS biometrics slot." },
+            { title: "Biometrics Support", description: "We guide you through the VFS steps, including documents, scans & procedure." },
+            { title: "Tracking & Updates", description: "We monitor your file and keep you updated until your visa decision." }
         ],
         faqs: [
-            { question: "Can I work on a standard visitor visa?", answer: "No, you cannot take up paid or unpaid work in the UK on this visa." }
+            { question: "Do I need confirmed flights and hotels before applying?", answer: "No — we guide you on safe itinerary planning without early bookings." },
+            { question: "Is the UK visa multiple-entry?", answer: "Yes, all Standard Visitor Visas are multiple-entry." },
+            { question: "Can I stay longer than 6 months?", answer: "No, the maximum stay allowed is 6 months per visit." },
+            { question: "Do Indians need biometrics?", answer: "Yes, biometrics is mandatory at VFS." },
+            { question: "Can I work on a Visitor Visa?", answer: "No. Working, paid activities, and long-term study are not allowed." }
         ]
     },
     uae: {
@@ -110,78 +124,126 @@ export const visaData: Record<string, VisaInfo> = {
         id: "canada",
         name: "Canada",
         flag: "🇨🇦",
-        title: "Canada Visitor Visa (TRV)",
-        description: "Whether visiting family or exploring the great outdoors, Canada welcomes you with a Temporary Resident Visa.",
-        processingTime: "25-45 Working Days",
+        title: "Canada Visa for Indians – Tourist & Business Visitor Visa Assistance",
+        description: "Planning a holiday in Canada or traveling for business? Smotvisa helps Indian travellers get their Canada Tourist Visa (Visitor Visa) and Business Visitor Visa with ease. With multiple branches across India and years of experience, we prepare your documents professionally, guide you through biometrics, and ensure a smooth, error-free application process. Whether you want to explore Toronto, Vancouver, Niagara Falls, or attend a business meeting, Smotvisa makes your Canada journey simple and stress-free.",
+        processingTime: "15-30 Working Days",
         validity: "Up to 10 Years (or passport expiry)",
-        entryType: "Multiple Entry",
+        entryType: "Single or Multiple Entry",
         price: "$189",
         requirements: [
-            "Valid passport",
-            "Bank statements (past 6 months)",
-            "Employment/Business documents",
-            "Travel history",
-            "Purpose of visit letter"
+            "Valid passport (minimum 6 months validity)",
+            "Passport-size photographs",
+            "Completed Canada Visa application forms",
+            "Travel history (previous visas, stamps)",
+            "6-month bank statements",
+            "Income proof (ITR, salary slips, business proof)",
+            "Proof of funds to cover stay and travel",
+            "Travel itinerary",
+            "Flight & accommodation planning",
+            "Invitation letter (for family visit or business meeting)",
+            "Letter of purpose of travel",
+            "Invitation letter from Canadian company (for business visa)",
+            "Business registration documents (India) (for business visa)",
+            "Employer letter / self business letter (for business visa)",
+            "Proof of business relations or trade (for business visa)"
         ],
         steps: [
-            { title: "Online Application", description: "Submit your application through the IRCC portal." },
-            { title: "Biometrics", description: "Give your fingerprints and photo at a VAC." },
-            { title: "Passport Request", description: "If approved, you'll be asked to send your passport for stamping." }
+            { title: "Free Eligibility Check", description: "We analyse your purpose, profile, and travel plan." },
+            { title: "Personalised Document Checklist", description: "A customised checklist for Tourist or Business Visitor applications." },
+            { title: "Professional Document Preparation", description: "We arrange, format and review your entire application to avoid mistakes." },
+            { title: "Online Application Filing", description: "We assist with your IRCC portal submission and complete required forms." },
+            { title: "Biometrics Appointment Guidance", description: "We help you schedule biometrics at the closest VFS centre and prepare you for it." },
+            { title: "Visa Tracking & Updates", description: "We monitor your application and inform you of every update." }
         ],
         faqs: [
-            { question: "Do I need an eTA or a Visa?", answer: "This depends on your citizenship. Some countries only need an Electronic Travel Authorization." }
+            { question: "Do I need confirmed tickets before applying?", answer: "Not required — we guide you to plan safely without early bookings." },
+            { question: "Is biometrics compulsory?", answer: "Yes, all Indian applicants must complete biometrics at VFS." },
+            { question: "Can I get multiple-entry?", answer: "Most Indian applicants receive multiple-entry visas valid up to 10 years." },
+            { question: "Can I work on a Visitor Visa?", answer: "No. The Visitor Visa only allows tourism or short business visits." }
         ]
     },
     australia: {
         id: "australia",
         name: "Australia",
         flag: "🇦🇺",
-        title: "Australia Visitor Visa (Subclass 600)",
-        description: "The visitor visa allows you to visit Australia for tourism, business, or to see family.",
-        processingTime: "20-30 Working Days",
-        validity: "3 Months / 6 Months / 12 Months",
+        title: "Australia Visa for Indians – Tourist & Business Visa Assistance",
+        description: "Planning a holiday in Australia or traveling for a business meeting? Smotvisa makes your Australia Tourist Visa and Business Visa process fast, simple and stress-free. With multiple branches across India, our visa experts help you prepare the right documents, avoid errors, and submit a complete application for the best chance of approval.",
+        processingTime: "10-25 Working Days",
+        validity: "3 Months to 12 Months",
         entryType: "Single / Multiple Entry",
         price: "$219",
         requirements: [
-            "Passport copy",
-            "National ID",
-            "Financial capacity evidence",
-            "Employment evidence",
-            "Travel plan"
+            "Valid passport (at least 6 months validity)",
+            "Passport-size photos",
+            "Completed visa application form",
+            "Travel itinerary (plan & dates)",
+            "Bank statements",
+            "Income proof (ITR / salary slips / business proof)",
+            "Sponsorship letter (if someone else funds your trip)",
+            "Invitation letter from Australian company (for business visa)",
+            "Company registration / business proof in India (for business visa)",
+            "Travel purpose letter from employer or self-declaration (for business visa)",
+            "Accommodation confirmations",
+            "Travel insurance (optional but recommended)"
         ],
         steps: [
-            { title: "ImmiAccount", description: "Submit application via the Home Affairs ImmiAccount." },
-            { title: "Biometrics", description: "Attend a biometrics collection point if required." },
-            { title: "Visa Grant", description: "Receive your visa grant notification via email." }
+            { title: "Free assessment", description: "We check your travel purpose & eligibility." },
+            { title: "Tailored document checklist", description: "You get a simplified list specific to Tourist or Business Visa." },
+            { title: "Document preparation", description: "We help arrange, format, and review your financial, travel, and supporting documents." },
+            { title: "Visa application filing", description: "We help you with your ImmiAccount submission & VFS steps." },
+            { title: "Biometrics guidance", description: "We schedule your biometrics at the nearest VFS center." },
+            { title: "Application tracking", description: "We track the file & update you on every movement." }
         ],
         faqs: [
-            { question: "Can I extend my stay in Australia?", answer: "You must apply for a new visa before your current one expires if you wish to stay longer." }
+            { question: "Do I need confirmed flight tickets before applying?", answer: "No, we guide you on safe travel planning without losing money." },
+            { question: "Is biometrics mandatory for Indian applicants?", answer: "Yes, biometrics is generally required at VFS India." },
+            { question: "Can I get multiple-entry?", answer: "Yes, many applicants receive multiple-entry visas depending on eligibility and history." }
         ]
     },
     schengen: {
         id: "schengen",
         name: "Schengen",
         flag: "🇪🇺",
-        title: "Schengen Short-Stay Visa",
-        description: "Visit 27 European countries in the Schengen area with a single visa.",
-        processingTime: "15-30 Working Days",
+        title: "Schengen Visa from India | Apply Schengen Visa with Expert Assistance – Smotvisa",
+        description: "Planning a trip to Europe? Smotvisa helps travellers with end-to-end Schengen visa assistance from document checks and application preparation to appointment booking and post-submission tracking. Our team specialises in B2C visa support for short-stay (up to 90 days) Schengen visas, tailored for tourists, business travellers, students on short courses, and transit passengers.",
+        processingTime: "15 Calendar Days",
         validity: "Up to 90 Days in any 180-day period",
-        entryType: "Single / Multiple Entry",
+        entryType: "Single / Double / Multiple Entry",
         price: "$179",
         requirements: [
-            "Passport (valid 3 months beyond stay)",
-            "Schengen Travel Insurance",
-            "Flight reservation",
-            "Proof of accommodation",
-            "Proof of financial means"
+            "Valid passport (minimum three months validity after return and at least two blank pages)",
+            "Completed and signed visa application form",
+            "Two recent biometric photographs meeting Schengen specifications",
+            "Proof of travel arrangements (flight itinerary, accommodation)",
+            "Proof of financial means (bank statements, salary slips, sponsorship letter)",
+            "Proof of travel medical insurance with minimum €30,000 coverage",
+            "Proof of civil status (marriage certificate, birth certificate if applicable)",
+            "Cover letter explaining purpose and duration of visit",
+            "For minors: Birth certificate, consent letter from parents or legal guardians, copies of parents' passports and visas, school NOC"
         ],
         steps: [
-            { title: "Determine Jurisdiction", description: "Apply to the embassy of your main destination country." },
-            { title: "Book Appointment", description: "Schedule an interview time." },
-            { title: "Attend & Biometrics", description: "Submit documents and give biometrics at the center." }
+            { title: "Personalised visa checklist", description: "Get a custom checklist for your purpose of travel (tourist, business, student, or transit)." },
+            { title: "Document verification and review", description: "We verify and review all your documents to ensure compliance with consular standards." },
+            { title: "Cover letter and invitation drafting", description: "Our experts draft professional cover letters and help with invitation letters." },
+            { title: "Appointment booking", description: "We book your appointment at VFS or consulate for submission." },
+            { title: "Photo and travel insurance guidance", description: "We provide guidance on photo specifications and recommend trusted insurance providers." },
+            { title: "Application tracking", description: "We track your application until a decision is made." }
         ],
         faqs: [
-            { question: "Which country should I apply to?", answer: "Apply to the country where you will spend the most time, or your first point of entry if time is equal." }
+            { question: "Is Schengen Visa available on arrival for Indian citizens?", answer: "No. There is no visa-on-arrival option for Indian passport holders in Schengen countries. Indians must obtain a valid Schengen visa prior to travelling." },
+            { question: "What are the benefits of applying for a Schengen visa?", answer: "A Schengen visa allows non-EU nationals to travel to and move freely between 29 Schengen member countries for short stays (up to 90 days in any 180-day period) for tourism, business, study, or transit purposes." },
+            { question: "Can I apply Schengen visa online?", answer: "Yes. Schengen visa applications can be made online through the official portal of the relevant embassy or consulate. Smotvisa assists with the entire online application process." },
+            { question: "Where do I submit a Schengen visa application in India?", answer: "Applications must be made at the relevant embassy or authorised application centre (such as VFS Global or BLS International) in India. Smotvisa guides you through the correct mission selection." },
+            { question: "How long can I stay with a Schengen Visa?", answer: "Schengen short-stay visas allow up to 90 days in any 180-day period. The exact duration is determined by the consulate based on your travel plans." },
+            { question: "Is it possible to extend the Schengen Visa?", answer: "Extensions are rare and granted only in exceptional situations like serious illness, force majeure, or humanitarian reasons. Applications must be made to local immigration authorities in the Schengen country where you are staying." },
+            { question: "Can I travel to more than one country with a Schengen Visa?", answer: "Yes. A single Schengen visa allows you to travel to and move freely between all Schengen member countries. However, you must apply to the embassy or consulate of the main destination or the country of first entry." },
+            { question: "Who doesn't need to pay for a Schengen visa?", answer: "Children under 6 years of age, students and researchers, and certain other categories may be eligible for free or reduced-fee visas. Smotvisa can help you determine if you qualify for any fee exemptions." },
+            { question: "Can a minor apply for a Schengen visa application?", answer: "Yes. Minors can apply for a Schengen visa. Additional documents are required, including birth certificate, consent letter from parents or legal guardians, copies of parents' passports and visas, and school NOC if travelling during academic term." },
+            { question: "Who can apply for a Schengen visa in India?", answer: "Indian passport holders and foreign residents in India can apply for a Schengen visa from India. Applications must be made at least 15 calendar days before the intended travel date." },
+            { question: "If my application for a Schengen visa is rejected, will I get a refund?", answer: "No. Schengen visa fees are non-refundable, even if your application is rejected. The fee covers the processing of your application, not the issuance of the visa." },
+            { question: "What will happen if I extend my stay beyond my visa's validity?", answer: "Overstaying your Schengen visa is a serious offense that can result in fines, deportation, and future visa restrictions. If you need to extend your stay, you must apply for an extension before your current visa expires." },
+            { question: "How many months prior to the trip should I apply for a Schengen visa?", answer: "Applications should be made between 6 months and 15 calendar days before the intended travel date. We recommend applying at least 4-6 weeks in advance to ensure enough processing time." },
+            { question: "Is it mandatory for Indians to get travel insurance for a Schengen visa?", answer: "Yes. Travel medical insurance is a mandatory part of every Schengen visa application. The insurance must cover at least €30,000 for medical emergencies and repatriation, be valid throughout the Schengen Area, and be active for the entire duration of your trip." }
         ]
     }
 };

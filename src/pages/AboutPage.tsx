@@ -8,7 +8,7 @@ const highlights = [
     "Trusted by 5000+ Happy Travelers",
     "99% Visa Approval Success Rate",
     "Dedicated Support Team Available 24/7",
-    "Partnerships with Top Airlines & Hotels",
+    "Specialization in US, Schengen, Australia, UK, Dubai Visa & OCI",
     "Transparent Pricing with No Hidden Fees",
 ];
 
@@ -46,14 +46,33 @@ const AboutPage = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="text-sm font-body font-semibold text-secondary uppercase tracking-widest">Our Story</span>
+                        <span className="text-sm font-body font-semibold text-secondary uppercase tracking-widest">About Smotvisa</span>
                         <h1 className="text-4xl sm:text-5xl font-display font-bold text-foreground mt-3 mb-6">
-                            Making Travel Dreams Come True Since 2018
+                            India’s Trusted Visa Experts
                         </h1>
                         <p className="text-muted-foreground font-body text-lg leading-relaxed mb-8">
-                            Smart Pro Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience.
-                            Whether you need a visa for the US, UK, GCC countries, or anywhere else in the world — we handle the entire
-                            process from documentation to approval, so you can focus on packing your bags.
+                            At Smotvisa, we simplify your international travel dreams with expert visa assistance trusted across India. 
+                            Whether you’re traveling for business, tourism, or family visits, our mission is to make your visa experience 
+                            smooth, fast, and stress-free.
+                        </p>
+                        <p className="text-muted-foreground font-body text-lg leading-relaxed mb-8">
+                            With a pan-India presence and a decade of proven expertise, we’ve helped thousands of travelers successfully 
+                            secure visas for destinations around the world. Our specialization includes US B1/B2 Visa, Schengen Visa, 
+                            Australia Visa, UK Visa, Dubai Visa, and OCI (Overseas Citizen of India) services.
+                        </p>
+                        <p className="text-muted-foreground font-body text-lg leading-relaxed mb-8">
+                            Led by Mr. Shaji Kandambeth, a seasoned professional with over 2 decades of experience, our dedicated team 
+                            of 10 visa Experts consultant brings deep knowledge and personalized care to every application. From 
+                            understanding your travel purpose to handling documentation and interview preparation, we guide you at every step.
+                        </p>
+                        <p className="text-muted-foreground font-body text-lg leading-relaxed mb-8">
+                            At Smotvisa, we believe in a human first approach. We listen, understand, and deliver solutions that fit 
+                            your travel needs not just templates. Our clients appreciate our transparency, quick turnaround time, and 
+                            the peace of mind that comes with expert guidance.
+                        </p>
+                        <p className="text-muted-foreground font-body text-lg leading-relaxed mb-8">
+                            Whether it’s your first international trip or your next big business meeting abroad, Smotvisa is here to 
+                            make it happen reliably and confidently.
                         </p>
 
                         <div className="grid sm:grid-cols-2 gap-4 mb-10">

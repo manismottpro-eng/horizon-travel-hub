@@ -8,7 +8,7 @@ const highlights = [
   "Trusted by 5000+ Happy Travelers",
   "99% Visa Approval Success Rate",
   "Dedicated Support Team Available 24/7",
-  "Partnerships with Top Airlines & Hotels",
+  "Specialization in US, Schengen, Australia, UK, Dubai Visa & OCI",
   "Transparent Pricing with No Hidden Fees",
 ];
 
@@ -37,14 +37,19 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-sm font-body font-semibold text-secondary uppercase tracking-widest">About Us</span>
+            <span className="text-sm font-body font-semibold text-secondary uppercase tracking-widest">About Smotvisa</span>
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mt-3 mb-4">
-              Making Travel Dreams Come True Since 2018
+              India’s Trusted Visa Experts
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-6">
-              Smot Visa is a leading visa and travel consultancy dedicated to simplifying your travel experience.
-              Whether you need a visa for the US, UK, GCC countries, or anywhere else in the world — we handle the entire
-              process from documentation to approval, so you can focus on packing your bags.
+              At Smotvisa, we simplify your international travel dreams with expert visa assistance trusted across India. 
+              Whether you’re traveling for business, tourism, or family visits, our mission is to make your visa experience 
+              smooth, fast, and stress-free.
+            </p>
+            <p className="text-muted-foreground font-body leading-relaxed mb-6">
+              With a pan-India presence and a decade of proven expertise, we’ve helped thousands of travelers successfully 
+              secure visas for destinations around the world. Our specialization includes US B1/B2 Visa, Schengen Visa, 
+              Australia Visa, UK Visa, Dubai Visa, and OCI (Overseas Citizen of India) services.
             </p>
             <div className="space-y-3 mb-8">
               {highlights.map((item) => (

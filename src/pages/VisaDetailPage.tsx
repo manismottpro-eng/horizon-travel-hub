@@ -78,6 +78,369 @@ const VisaDetailPage = () => {
                 </div>
             </section>
 
+            {/* Visa Types */}
+            {data.id === "australia" && (
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="max-w-4xl mx-auto"
+                        >
+                            <h2 className="text-3xl font-display font-bold text-foreground mb-8 text-center">Australia Visa Types</h2>
+                            
+                            {/* Tourist Visa */}
+                            <div className="mb-12">
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">Australia Tourist Visa (Subclass 600 – Tourist Stream)</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    Australia offers a Tourist Visa for Indians who want to:
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Explore cities like Sydney, Melbourne, Perth, Gold Coast & Brisbane</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Visit family & friends living in Australia</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Enjoy beaches, wildlife, road trips, and attractions</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Attend non-business, leisure activities</span>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-body text-muted-foreground mt-6">
+                                    Validity usually ranges from 3 months to 12 months, depending on your travel plan and profile.
+                                </p>
+                            </div>
+
+                            {/* Business Visa */}
+                            <div className="mb-12">
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">Australia Business Visa (Subclass 600 – Business Stream)</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    This visa is for Indian travelers who need to visit Australia for:
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Business meetings</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Industry events or exhibitions</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Conferences or seminars</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Negotiations or short business trips</span>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-body text-muted-foreground mt-6">
+                                    It does not permit employment. Smotvisa ensures your documentation clearly reflects your business purpose to avoid delays.
+                                </p>
+                            </div>
+
+                            {/* Why Choose Smotvisa */}
+                            <div>
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">Why Choose Smotvisa for Your Australia Visa?</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    Smotvisa – India’s Trusted Visa Agents
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Pan-India branches for local support</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">6+ years of visa expertise</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">High success rate due to correct documentation</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Zero guesswork — only clear, step-by-step guidance</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Transparent pricing</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Fast processing with complete file preparation</span>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-body text-muted-foreground mt-6">
+                                    We ensure your application is professionally prepared to avoid delays or refusals.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            )}
+
+            {/* UK Visa Types */}
+            {data.id === "uk" && (
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="max-w-4xl mx-auto"
+                        >
+                            <h2 className="text-3xl font-display font-bold text-foreground mb-8 text-center">UK Visa Types</h2>
+                            
+                            {/* Tourist Visa */}
+                            <div className="mb-12">
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">UK Tourist Visa for Indians</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    The UK Standard Visitor Visa (Tourist Stream) allows Indian travellers to:
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Explore the UK for holidays and sightseeing</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Visit family and friends</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Attend cultural events, ceremonies, or non-business activities</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Take short leisure trips across England, Scotland, Wales & Northern Ireland</span>
+                                    </div>
+                                </div>
+                                <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                        <div>
+                                            <span className="font-semibold text-foreground">Visa Type:</span>
+                                            <span className="text-muted-foreground ml-2">Standard Visitor Visa (Tourist Stream)</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-semibold text-foreground">Validity:</span>
+                                            <span className="text-muted-foreground ml-2">6 months / 2 years / 5 years / 10 years (multiple-entry)</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-semibold text-foreground">Stay Duration:</span>
+                                            <span className="text-muted-foreground ml-2">Up to 6 months per visit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Business Visa */}
+                            <div className="mb-12">
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">UK Business Visitor Visa for Indians</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    The Business Visitor Visa (Standard Visitor – Business) is ideal for:
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Attending business meetings</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Participating in conferences, seminars, or events</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Signing contracts or negotiations</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Industry exhibitions and trade fairs</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Short official training sessions (non-paid)</span>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-body text-muted-foreground mt-6 font-semibold">
+                                    Important: This visa does not allow employment or paid work in the UK.
+                                </p>
+                            </div>
+
+                            {/* Why Choose Smotvisa */}
+                            <div>
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">Why Choose Smotvisa?</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    Smotvisa – India’s Trusted UK Visa Consultants
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Expert UK visa consultants with multiple years of experience</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Pan-India branch presence for easy access</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">100% personalized support — no automated templates</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Strong documentation preparation for higher approval chances</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Fast turnaround and transparent service</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">End-to-end handling: forms, documents, biometrics & tracking</span>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-body text-muted-foreground mt-6">
+                                    Your UK visa process becomes effortless with our guidance.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            )}
+
+            {/* Canada Visa Types */}
+            {data.id === "canada" && (
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="max-w-4xl mx-auto"
+                        >
+                            <h2 className="text-3xl font-display font-bold text-foreground mb-8 text-center">Canada Visa Types</h2>
+                            
+                            {/* Tourist Visa */}
+                            <div className="mb-12">
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">Canada Tourist Visa (Visitor Visa)</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    A Canada Tourist Visa allows Indian travellers to:
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Visit Canada for holidays and tourism</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Explore cities, attractions & natural landscapes</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Visit family and friends</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Attend non-business events or leisure activities</span>
+                                    </div>
+                                </div>
+                                <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                        <div>
+                                            <span className="font-semibold text-foreground">Visa Type:</span>
+                                            <span className="text-muted-foreground ml-2">Temporary Resident Visa (TRV)</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-semibold text-foreground">Entry Type:</span>
+                                            <span className="text-muted-foreground ml-2">Single or Multiple-entry (valid up to 10 years)</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-semibold text-foreground">Stay Duration:</span>
+                                            <span className="text-muted-foreground ml-2">Usually up to 6 months per visit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Business Visa */}
+                            <div className="mb-12">
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">Canada Business Visitor Visa</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    This visa is for Indians traveling to Canada for short business-related activities such as:
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Attending business meetings</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Participating in conferences or seminars</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Attending trade fairs, exhibitions, or industry events</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Negotiating or discussing contracts</span>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-body text-muted-foreground mt-6 font-semibold">
+                                    Important: This visa does not allow employment or paid work in Canada.
+                                </p>
+                            </div>
+
+                            {/* Why Choose Smotvisa */}
+                            <div>
+                                <h3 className="text-2xl font-display font-bold text-foreground mb-6">Why Choose Smotvisa?</h3>
+                                <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">
+                                    Smotvisa – India’s Trusted Visa Consultants
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Experienced visa experts for Canada applications</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Pan-India branch support for easy access</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">End-to-end assistance from document prep to biometrics</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Clear, transparent guidance with no hidden fees</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">High success rate due to accurate file preparation</span>
+                                    </div>
+                                    <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border shadow-sm">
+                                        <CheckCircle2 className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                                        <span className="text-sm font-body text-foreground">Fast processing with error-free applications</span>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-body text-muted-foreground mt-6">
+                                    Your application is treated professionally from start to finish.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            )}
+
             {/* Why Choose Us */}
             {data.id === "us" && (
                 <section className="py-20 bg-muted/30">
