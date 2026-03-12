@@ -22,6 +22,10 @@ const WhyChooseSection = () => {
     {
       title: "Transparent Process",
       description: "No hidden costs, no misleading promises — only clear steps and reliable service."
+    },
+    {
+      title: "High Success Rate",
+      description: "Proven track record with thousands of successful visa approvals across all major destinations."
     }
   ];
 
