@@ -25,7 +25,7 @@ const Footer = () => {
               {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
                 <a
                   key={i}
-                  href="https://www.instagram.com/smotproindia/"
+                  href="\"
                   className="p-2.5 bg-primary-foreground/10 rounded-xl hover:bg-secondary hover:text-secondary-foreground transition-all duration-300"
                 >
                   <Icon className="h-5 w-5" />
