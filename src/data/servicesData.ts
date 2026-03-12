@@ -26,6 +26,13 @@ export const servicesData = [
         href: "/services/air-ticketing"
     },
   
-   
+   {
+        id: "",
+        icon: Plane,
+        title: "Flight Booking",
+        description: "Best deals on domestic and international flights with flexible booking options.",
+        features: ["Best Prices", "All Airlines", "Group Deals", "Flexible Changes"],
+        href: "/services/air-ticketing"
+    },
 
 ];
