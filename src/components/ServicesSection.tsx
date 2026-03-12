@@ -50,37 +50,40 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Main Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {servicesData.map((service, idx) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-8 bg-card rounded-2xl shadow-card border border-border group hover:shadow-elevated transition-all"
-            >
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
-                <service.icon className="h-6 w-6 text-secondary" />
-              </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-3">{service.title}</h3>
-              <p className="text-sm font-body text-muted-foreground mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              <ul className="space-y-2 mb-8">
-                {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-xs font-body text-muted-foreground">
-                    <div className="w-1 h-1 rounded-full bg-secondary" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Link to={service.href} className="text-xs font-body font-bold text-secondary flex items-center gap-1 hover:underline">
-                Learn More <ArrowRight className="h-3 w-3" />
-              </Link>
-            </motion.div>
-          ))}
+        {/* SMOT VISA SERVICES */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-display font-bold text-foreground mb-12 text-center">Smot Visa Services</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {servicesData.map((service, idx) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="p-8 bg-card rounded-2xl shadow-card border border-border group hover:shadow-elevated transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+                  <service.icon className="h-6 w-6 text-secondary" />
+                </div>
+                <h3 className="text-xl font-display font-bold text-foreground mb-3">{service.title}</h3>
+                <p className="text-sm font-body text-muted-foreground mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                <ul className="space-y-2 mb-8">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-xs font-body text-muted-foreground">
+                      <div className="w-1 h-1 rounded-full bg-secondary" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link to={service.href} className="text-xs font-body font-bold text-secondary flex items-center gap-1 hover:underline">
+                  Learn More <ArrowRight className="h-3 w-3" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
