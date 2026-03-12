@@ -50,8 +50,7 @@ const HeroSection = () => {
               className="text-lg sm:text-xl text-primary-foreground/80 font-body leading-relaxed mb-8 max-w-xl"
             >
               Planning to travel abroad for leisure or business? Smotvisa makes visa applications simple, fast, and stress-free.
-              We assist Indian travelers in obtaining Tourist and Business Visas for over 50 countries, including popular destinations across Europe, the USA, UK, Canada, Dubai, Singapore, and more.
-              Whether it’s your next family holiday or an important business trip, our expert team ensures you get your visa on time and without confusion.
+              We assist Indian travelers in obtaining Tourist and Business Visas for over 50+ countries with a 99% success rate.
             </motion.p>
 
             <motion.div
