@@ -17,6 +17,8 @@ import NotFound from "@/pages/NotFound";
 import Layout from "@/components/Layout";
 import ScrollToTop from "@/components/ScrollToTop";
 import VisaEligibilityPage from "@/pages/VisaEligibilityPage";
+import TourPackagesPage from "@/pages/TourPackagesPage";
+import AirTicketingPage from "@/pages/AirTicketingPage";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +42,8 @@ const App = () => (
             <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/blog/:blogId" element={<BlogDetailPage />} />
             <Route path="/visa-checker" element={<VisaEligibilityPage />} />
+            <Route path="/services/tours" element={<TourPackagesPage />} />
+            <Route path="/services/air-ticketing" element={<AirTicketingPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

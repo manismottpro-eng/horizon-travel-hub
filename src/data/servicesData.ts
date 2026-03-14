@@ -1,4 +1,4 @@
-import { Plane, MapPin, Headphones, Ticket, Users, Briefcase } from "lucide-react";
+import { Plane, MapPin, Headphones, Ticket, Users, Briefcase, Luggage, Star, Heart, Camera } from "lucide-react";
 
 export const servicesData = [
   {
@@ -21,8 +21,32 @@ export const servicesData = [
     id: "air-ticketing",
     icon: Plane,
     title: "Flight Booking",
-    description: "Best deals on domestic and international flights with flexible booking options.",
-    features: ["Best Prices", "All Airlines", "Group Deals", "Flexible Changes"],
+    description: "Best deals on domestic and international flights with flexible booking options. Get exclusive rates on flights to popular destinations worldwide.",
+    features: ["Competitive Prices", "All Major Airlines", "Group Discounts", "Flexible Booking"],
     href: "/services/air-ticketing"
+  },
+  {
+    id: "tour-packages",
+    icon: Luggage,
+    title: "International Tour Packages",
+    description: "Complete travel solutions including flights, accommodation, sightseeing, and visa assistance. Choose from our handpicked packages or create your custom itinerary.",
+    features: ["Flight + Hotel Combos", "Guided Tours", "Visa Assistance", "24/7 Support"],
+    href: "/#tour-packages"
+  },
+  {
+    id: "premium-travel",
+    icon: Heart,
+    title: "Premium Travel",
+    description: "Luxury travel experience with business and first-class flights, 5-star accommodations, and exclusive sightseeing tours.",
+    features: ["Business/First Class", "Lounge Access", "Private Transfers", "Concierge Service"],
+    href: "/#tour-packages"
+  },
+  {
+    id: "group-travel",
+    icon: Users,
+    title: "Group Travel",
+    description: "Special rates and dedicated support for group travel bookings. Perfect for families, friends, corporate groups, and educational tours.",
+    features: ["Custom Itineraries", "Best Group Rates", "Visa Coordination", "Group Transfers"],
+    href: "/#tour-packages"
   }
 ];
