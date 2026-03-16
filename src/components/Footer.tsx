@@ -97,10 +97,10 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="space-y-1">
             <p className="text-xs font-body text-primary-foreground/50">
-              SmotPro visa
+              Smot visa
             </p>
             <p className="text-[10px] font-body text-primary-foreground/30">
-              Managed by Smotpro visa Team.
+              Managed by Smot visa Team.
             </p>
           </div>
 
