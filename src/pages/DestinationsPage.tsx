@@ -33,7 +33,7 @@ const destinations = [
         name: "United States",
         flag: "🇺🇸",
         image: travelersImg,
-        category: "Americas",
+        category: "America",
         visaType: "B1/B2 Visitor Visa",
         processing: "Appointment Based",
         price: "From $249",
@@ -51,7 +51,7 @@ const destinations = [
 ];
 
 const moreCountries = [
-    { id: "canada", name: "Canada", flag: "🇨🇦", category: "Americas" },
+    { id: "canada", name: "Canada", flag: "🇨🇦", category: "America" },
     { id: "australia", name: "Australia", flag: "🇦🇺", category: "Oceania" },
     { id: "kuwait", name: "Kuwait", flag: "🇰🇼", category: "Middle East" },
     { id: "saudi", name: "Saudi Arabia", flag: "🇸🇦", category: "Middle East" },
