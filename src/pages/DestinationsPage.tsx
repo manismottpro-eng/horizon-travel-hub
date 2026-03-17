@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import dubaiImg from "@/assets/dubai.jpg";
 import londonImg from "@/assets/london.jpg";
-import travelersImg from "@/assets/travelers.jpg";
+import travelersImg from "@/assets/us.webp";
 import visaImg from "@/assets/visa-services.jpg";
 
 const destinations = [
