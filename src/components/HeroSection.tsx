@@ -77,6 +77,20 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+              className="mb-8"
+            >
+              <Link
+                to="/visa-agents-in-bangalore"
+                className="text-primary-foreground font-body text-sm underline hover:text-secondary transition-colors"
+              >
+                Visa Agents in Bangalore
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
               className="flex gap-8"
             >

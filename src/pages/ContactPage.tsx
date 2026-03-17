@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send, Globe, Star, Info } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { offices, Office } from "../data/officeData";
 import { toast } from "../hooks/use-toast";
 
@@ -9,24 +9,32 @@ const ContactPage = () => {
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
     const [activeOffice, setActiveOffice] = useState<Office>(offices[0]);
     const [isLoading, setIsLoading] = useState(false);
-    const [searchParams, setSearchParams] = useSearchParams();
+    const { branchId } = useParams<{ branchId: string }>();
     const navigate = useNavigate();
+    const searchParams = new URLSearchParams(window.location.search);
+
+    // Redirect from query parameter to SEO-friendly URL
+    useEffect(() => {
+        const branchParam = searchParams.get("branch");
+        if (branchParam) {
+            navigate(`/contact/${branchParam}`, { replace: true });
+        }
+    }, [navigate, searchParams]);
 
     // Set active office based on URL parameter
     useEffect(() => {
-        const branchId = searchParams.get("branch");
         if (branchId) {
             const office = offices.find(office => office.id === branchId);
             if (office) {
                 setActiveOffice(office);
             }
         }
-    }, [searchParams]);
+    }, [branchId]);
 
     // Update URL when active office changes
     const handleOfficeChange = (office: Office) => {
         setActiveOffice(office);
-        setSearchParams({ branch: office.id });
+        navigate(`/contact/${office.id}`);
     };
 
     const handleSubmit = async (e: React.FormEvent) => {

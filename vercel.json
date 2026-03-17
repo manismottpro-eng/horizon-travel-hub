@@ -1,4 +1,17 @@
 {
+  "redirects": [
+    {
+      "source": "/contact",
+      "has": [
+        {
+          "type": "query",
+          "key": "branch"
+        }
+      ],
+      "destination": "/contact/:branch",
+      "permanent": true
+    }
+  ],
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/" }

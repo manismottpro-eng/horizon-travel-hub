@@ -19,6 +19,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import VisaEligibilityPage from "@/pages/VisaEligibilityPage";
 import TourPackagesPage from "@/pages/TourPackagesPage";
 import AirTicketingPage from "@/pages/AirTicketingPage";
+import VisaAgentsInBangalore from "@/pages/VisaAgentsInBangalore";
 
 const queryClient = new QueryClient();
 
@@ -32,11 +33,13 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/visa-agents-in-bangalore" element={<VisaAgentsInBangalore />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/destinations" element={<DestinationsPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact/:branchId" element={<ContactPage />} />
             <Route path="/offices/:officeId" element={<OfficeDetailPage />} />
             <Route path="/visa/:countryId" element={<VisaDetailPage />} />
             <Route path="/services/:serviceId" element={<ServiceDetailPage />} />

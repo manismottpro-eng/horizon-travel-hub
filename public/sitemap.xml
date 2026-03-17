@@ -72,6 +72,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Visa Agents in Bangalore Page -->
+  <url>
+    <loc>https://smotvisa.com/visa-agents-in-bangalore</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Visa Pages -->
   <url>
     <loc>https://smotvisa.com/visa/us</loc>
